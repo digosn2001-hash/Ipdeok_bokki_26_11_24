@@ -1,0 +1,139 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #000000;
+    background: #ffffff;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 768px;
+    margin: 0 auto;
+}
+
+.sub-header {
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-bottom: 1px solid #eeeeee;
+}
+
+.sub-header h1 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.finish-section {
+    padding: 65px 20px 40px;
+    text-align: center;
+}
+
+.check-icon {
+    width: 90px;
+    height: 90px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 25px;
+
+    background: #846363;
+    color: #ffffff;
+
+    border-radius: 50%;
+    font-size: 48px;
+}
+
+.finish-section h2 {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.finish-section p {
+    font-size: 14px;
+    color: #838383;
+    margin-top: 12px;
+}
+
+.demo-notice {
+    font-size: 12px;
+}
+
+.order-summary {
+    margin: 0 20px;
+    padding: 24px 20px;
+
+    border: 1px solid #dddddd;
+    border-radius: 12px;
+}
+
+.order-summary h3 {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+.summary-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    margin-bottom: 18px;
+    font-size: 14px;
+}
+
+.summary-row span {
+    color: #838383;
+}
+
+.summary-row strong {
+    font-weight: 500;
+    text-align: right;
+}
+
+.button-area {
+    padding: 30px 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.home-button,
+.menu-button {
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.home-button {
+    background: #846363;
+    color: #ffffff;
+}
+
+.menu-button {
+    border: 1px solid #846363;
+    color: #846363;
+}

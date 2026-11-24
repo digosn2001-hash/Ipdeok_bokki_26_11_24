@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>결제페이지</title>
+
+    <link rel="stylesheet" href="../css/payment.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <header class="sub-header">
+            <a href="../../detail/img/detail.html">〈</a>
+            <h1>주문 및 결제</h1>
+            <a href="../../../index.html">⌂</a>
+        </header>
+
+        <section class="section">
+
+            <h2>배달 정보</h2>
+
+            <input type="text" placeholder="배달 주소">
+            <input type="text" placeholder="상세 주소">
+            <input type="tel" placeholder="전화번호">
+
+            <textarea placeholder="요청사항"></textarea>
+
+        </section>
+
+        <section class="section">
+
+            <h2>주문 내역</h2>
+
+            <div class="order-item">
+                <div class="order-image"></div>
+
+                <div>
+                    <h3>오리지널 떡볶이</h3>
+                    <p>수량 1개</p>
+                    <strong>14,000원</strong>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="section">
+
+            <h2>결제 수단</h2>
+
+            <label>
+                <input type="radio" name="payment" checked>
+                신용카드
+            </label>
+
+            <label>
+                <input type="radio" name="payment">
+                간편결제
+            </label>
+
+            <label>
+                <input type="radio" name="payment">
+                만나서 결제
+            </label>
+
+        </section>
+
+        <section class="section">
+
+            <h2>결제 금액</h2>
+
+            <div class="price-row">
+                <span>주문 금액</span>
+                <span>14,000원</span>
+            </div>
+
+            <div class="price-row">
+                <span>배달비</span>
+                <span>3,000원</span>
+            </div>
+
+            <div class="price-row total">
+                <span>총 결제 금액</span>
+                <strong>17,000원</strong>
+            </div>
+
+        </section>
+
+        <div class="payment-area">
+
+            <a href="../../payment_Finish/img/payment_Finish.html"
+                class="payment-button">
+                17,000원 결제하기
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
