@@ -4,103 +4,911 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>입떡볶이 - 커뮤니티</title>
 
-    <title>결제페이지</title>
-
-    <link rel="stylesheet" href="../css/payment.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/style.css">
 </head>
 
 <body>
 
     <div class="wrapper">
 
-        <header class="sub-header">
-            <a href="../../detail/img/detail.html">〈</a>
-            <h1>주문 및 결제</h1>
-            <a href="../../../index.html">⌂</a>
-        </header>
-
-        <section class="section">
-
-            <h2>배달 정보</h2>
-
-            <input type="text" placeholder="배달 주소">
-            <input type="text" placeholder="상세 주소">
-            <input type="tel" placeholder="전화번호">
-
-            <textarea placeholder="요청사항"></textarea>
-
-        </section>
-
-        <section class="section">
-
-            <h2>주문 내역</h2>
-
-            <div class="order-item">
-                <div class="order-image"></div>
-
-                <div>
-                    <h3>오리지널 떡볶이</h3>
-                    <p>수량 1개</p>
-                    <strong>14,000원</strong>
-                </div>
-            </div>
-
-        </section>
-
-        <section class="section">
-
-            <h2>결제 수단</h2>
-
-            <label>
-                <input type="radio" name="payment" checked>
-                신용카드
-            </label>
-
-            <label>
-                <input type="radio" name="payment">
-                간편결제
-            </label>
-
-            <label>
-                <input type="radio" name="payment">
-                만나서 결제
-            </label>
-
-        </section>
-
-        <section class="section">
-
-            <h2>결제 금액</h2>
-
-            <div class="price-row">
-                <span>주문 금액</span>
-                <span>14,000원</span>
-            </div>
-
-            <div class="price-row">
-                <span>배달비</span>
-                <span>3,000원</span>
-            </div>
-
-            <div class="price-row total">
-                <span>총 결제 금액</span>
-                <strong>17,000원</strong>
-            </div>
-
-        </section>
-
-        <div class="payment-area">
-
-            <a href="../../payment_Finish/img/payment_Finish.html"
-                class="payment-button">
-                17,000원 결제하기
+        <!-- 헤더 -->
+        <header class="header">
+            <a href="../../../index.html" class="logo">
+                <img src="../../../img/logo.png" alt="입떡볶이">
             </a>
 
-        </div>
+            <button class="menu-button" id="menuOpen"
+                aria-label="메뉴 열기">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </header>
+
+        <!-- 햄버거 메뉴 -->
+        <div class="menu-overlay" id="menuOverlay"></div>
+
+        <aside class="side-menu" id="sideMenu" inert>
+            <div class="side-menu-header">
+                <h2>MENU</h2>
+                <button class="close-button" id="menuClose">×</button>
+            </div>
+
+            <nav class="side-menu-nav">
+                <ul>
+                    <li>
+                        <a href="../../lists/img/lists.html">
+                            떡볶이메뉴 <span>›</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../detail/img/detail.html">
+                            소개 <span>›</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="payment.html">
+                            커뮤니티 <span>›</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../payment_Finish/img/payment_Finish.html">
+                            로그인 <span>›</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+
+        <!-- SECTION 1 : 커뮤니티 제목 -->
+
+        <section class="community-section_1">
+            <h1>커뮤니티</h1>
+            <p>입떡볶이의 다양한 소식을 만나보세요.</p>
+        </section>
+
+
+        <!-- SECTION 2 : 탭메뉴 -->
+
+        <section class="community-section_2">
+
+            <div class="community-tabs">
+
+                <button class="community-tab active"
+                    onclick="filterPosts(this, 'notice')">
+                    공지사항
+                </button>
+
+                <button class="community-tab"
+                    onclick="filterPosts(this, 'event')">
+                    이벤트
+                </button>
+
+                <button class="community-tab"
+                    onclick="filterPosts(this, 'review')">
+                    고객 후기
+                </button>
+
+                <button class="community-tab"
+                    onclick="filterPosts(this, 'question')">
+                    문의하기
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- SECTION 3 : 검색 -->
+
+        <section class="community-section_3">
+
+            <input type="text" id="communitySearch"
+                placeholder="검색어를 입력하세요"
+                oninput="renderPosts()">
+
+            <button onclick="renderPosts()">검색</button>
+
+        </section>
+
+
+        <!-- SECTION 4 : 게시글 목록 -->
+
+        <section class="community-section_4" id="postList">
+        </section>
+
+
+        <!-- SECTION 5 : 글쓰기 -->
+
+        <section class="community-section_5">
+
+            <button class="community-write"
+                onclick="openWriteChoice()">
+                글쓰기
+            </button>
+
+        </section>
 
     </div>
+
+
+    <!-- POPUP 1 : 비회원 / 로그인 선택 -->
+
+    <dialog id="choiceDialog" class="community-dialog">
+
+        <div class="popup-heading">
+            <h2>글쓰기</h2>
+            <button onclick="choiceDialog.close()">×</button>
+        </div>
+
+        <p>글쓰기 방법을 선택해 주세요.</p>
+
+        <button class="guest-choice" onclick="openGuest()">
+            비회원
+            <small>회원가입 없이 글쓰기</small>
+        </button>
+
+        <button class="community-write" onclick="openLogin()">
+            로그인
+            <small>회원으로 글쓰기</small>
+        </button>
+
+    </dialog>
+
+
+    <!-- POPUP 2 : 비회원 정보 입력 -->
+
+    <dialog id="guestDialog" class="community-dialog">
+
+        <div class="popup-heading">
+            <h2>비회원 글쓰기</h2>
+            <button onclick="guestDialog.close()">×</button>
+        </div>
+
+        <p>게시글 수정 및 삭제에 사용할 정보를 입력해 주세요.</p>
+
+        <label for="guestPhone">휴대폰 번호</label>
+
+        <input type="tel" id="guestPhone"
+            placeholder="010-0000-0000"
+            maxlength="13">
+
+        <label for="guestPin">비밀번호 4자리</label>
+
+        <input type="password" id="guestPin"
+            placeholder="숫자 4자리 입력"
+            inputmode="numeric"
+            maxlength="4">
+
+        <p class="popup-notice">
+            실습용 번호와 비밀번호를 사용해 주세요.
+            입력한 정보는 게시글에 표시되지 않습니다.
+        </p>
+
+        <button class="community-write"
+            onclick="confirmGuest()">
+            다음
+        </button>
+
+        <button class="community-cancel"
+            onclick="backToChoice(guestDialog)">
+            뒤로가기
+        </button>
+
+    </dialog>
+
+
+    <!-- POPUP 3 : 로그인 방법 선택 -->
+
+    <dialog id="loginDialog" class="community-dialog">
+
+        <div class="popup-heading">
+            <h2>로그인</h2>
+            <button onclick="loginDialog.close()">×</button>
+        </div>
+
+        <p>로그인 방법을 선택해 주세요.</p>
+
+        <button class="social-login naver-login"
+            onclick="demoLogin('네이버')">
+            네이버 로그인
+        </button>
+
+        <button class="social-login kakao-login"
+            onclick="demoLogin('카카오')">
+            카카오 로그인
+        </button>
+
+        <button class="social-login google-login"
+            onclick="demoLogin('구글')">
+            Google 로그인
+        </button>
+
+        <button class="social-login apple-login"
+            onclick="demoLogin('애플')">
+            Apple 로그인
+        </button>
+
+        <p class="login-divider">또는</p>
+
+        <button class="guest-choice" onclick="openIdLogin()">
+            아이디 로그인
+        </button>
+
+        <button class="guest-choice" onclick="openEasyAuth()">
+            간편인증
+        </button>
+
+        <button class="community-cancel"
+            onclick="backToChoice(loginDialog)">
+            뒤로가기
+        </button>
+
+        <p class="popup-notice">
+            로그인 및 간편인증은 실습용입니다.
+        </p>
+
+    </dialog>
+
+
+    <!-- POPUP 4 : 아이디 로그인 -->
+
+    <dialog id="idDialog" class="community-dialog">
+
+        <div class="popup-heading">
+            <h2>아이디 로그인</h2>
+            <button onclick="idDialog.close()">×</button>
+        </div>
+
+        <label for="memberId">아이디</label>
+        <input type="text" id="memberId"
+            placeholder="테스트 아이디">
+
+        <label for="memberPassword">비밀번호</label>
+        <input type="password" id="memberPassword"
+            placeholder="테스트 비밀번호">
+
+        <button class="community-write"
+            onclick="confirmIdLogin()">
+            로그인 (실습)
+        </button>
+
+        <button class="community-cancel"
+            onclick="idDialog.close(); loginDialog.showModal()">
+            뒤로가기
+        </button>
+
+    </dialog>
+
+
+    <!-- POPUP 5 : 간편인증 -->
+
+    <dialog id="authDialog" class="community-dialog">
+
+        <div class="popup-heading">
+            <h2>간편인증</h2>
+            <button onclick="authDialog.close()">×</button>
+        </div>
+
+        <button class="guest-choice"
+            onclick="demoLogin('PASS 인증')">
+            PASS 인증
+        </button>
+
+        <button class="guest-choice"
+            onclick="demoLogin('카카오 인증서')">
+            카카오 인증서
+        </button>
+
+        <button class="guest-choice"
+            onclick="demoLogin('네이버 인증서')">
+            네이버 인증서
+        </button>
+
+        <button class="guest-choice"
+            onclick="demoLogin('토스 인증서')">
+            토스 인증서
+        </button>
+
+        <button class="community-cancel"
+            onclick="authDialog.close(); loginDialog.showModal()">
+            뒤로가기
+        </button>
+
+    </dialog>
+
+
+    <!-- POPUP 6 : 게시글 작성 및 수정 -->
+
+    <dialog id="writeDialog" class="community-dialog">
+
+        <div class="popup-heading">
+            <h2 id="writeHeading">게시글 작성</h2>
+            <button onclick="writeDialog.close()">×</button>
+        </div>
+
+        <p id="writerInfo"></p>
+
+        <label for="postCategory">게시판 선택</label>
+
+        <select id="postCategory">
+            <option value="review">고객 후기</option>
+            <option value="question">문의하기</option>
+        </select>
+
+        <label for="postTitle">제목</label>
+
+        <input type="text" id="postTitle"
+            placeholder="제목을 입력하세요">
+
+        <label for="postContent">내용</label>
+
+        <textarea id="postContent"
+            placeholder="내용을 입력하세요"></textarea>
+
+        <button class="community-write"
+            id="savePostButton" onclick="savePost()">
+            등록하기
+        </button>
+
+        <button class="community-cancel"
+            onclick="writeDialog.close()">
+            취소
+        </button>
+
+    </dialog>
+
+
+    <!-- POPUP 7 : 게시글 수정 및 삭제 확인 -->
+
+    <dialog id="verifyDialog" class="community-dialog">
+
+        <div class="popup-heading">
+            <h2 id="verifyTitle">게시글 확인</h2>
+            <button onclick="verifyDialog.close()">×</button>
+        </div>
+
+        <p>작성할 때 입력한 정보를 입력해 주세요.</p>
+
+        <label for="verifyPhone">휴대폰 번호</label>
+
+        <input type="tel" id="verifyPhone"
+            placeholder="010-0000-0000"
+            maxlength="13">
+
+        <label for="verifyPin">비밀번호 4자리</label>
+
+        <input type="password" id="verifyPin"
+            inputmode="numeric"
+            maxlength="4"
+            placeholder="비밀번호 입력">
+
+        <button class="community-write"
+            onclick="verifyPost()">
+            확인
+        </button>
+
+        <button class="community-cancel"
+            onclick="verifyDialog.close()">
+            취소
+        </button>
+
+    </dialog>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        // 햄버거 메뉴
+
+        const menuOpen = document.getElementById("menuOpen");
+        const menuClose = document.getElementById("menuClose");
+        const sideMenu = document.getElementById("sideMenu");
+        const menuOverlay = document.getElementById("menuOverlay");
+
+        function openMenu() {
+            sideMenu.inert = false;
+            sideMenu.classList.add("active");
+            menuOverlay.classList.add("active");
+            document.body.classList.add("menu-open");
+        }
+
+        function closeMenu() {
+            sideMenu.classList.remove("active");
+            menuOverlay.classList.remove("active");
+            document.body.classList.remove("menu-open");
+            sideMenu.inert = true;
+        }
+
+        menuOpen.addEventListener("click", openMenu);
+        menuClose.addEventListener("click", closeMenu);
+        menuOverlay.addEventListener("click", closeMenu);
+
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "Escape" &&
+                sideMenu.classList.contains("active")) {
+                closeMenu();
+            }
+        });
+
+
+        // 팝업 연결
+
+        const choiceDialog = document.getElementById("choiceDialog");
+        const guestDialog = document.getElementById("guestDialog");
+        const loginDialog = document.getElementById("loginDialog");
+        const idDialog = document.getElementById("idDialog");
+        const authDialog = document.getElementById("authDialog");
+        const writeDialog = document.getElementById("writeDialog");
+        const verifyDialog = document.getElementById("verifyDialog");
+
+
+        // 게시글 정보
+
+        let currentCategory = "notice";
+
+        let currentWriter = null;
+
+        let editingId = null;
+        let targetId = null;
+        let targetAction = "";
+
+        const categories = {
+            notice: "공지사항",
+            event: "이벤트",
+            review: "고객 후기",
+            question: "문의하기"
+        };
+
+        let posts = [
+            {
+                id: 1,
+                category: "notice",
+                title: "입떡볶이 이용 안내",
+                content: "입떡볶이를 이용해 주셔서 감사합니다.",
+                writer: "관리자",
+                date: "2026.11.25"
+            },
+            {
+                id: 2,
+                category: "event",
+                title: "12월 할인 쿠폰 이벤트",
+                content: "다양한 할인 혜택을 만나보세요!",
+                writer: "관리자",
+                date: "2026.11.25"
+            },
+            {
+                id: 3,
+                category: "review",
+                title: "떡볶이 너무 맛있어요!",
+                content: "다음에도 주문하고 싶어요.",
+                writer: "고객",
+                date: "2026.11.25"
+            }
+        ];
+
+
+        // 글쓰기 방법 선택
+
+        function openWriteChoice() {
+            currentWriter = null;
+            editingId = null;
+            choiceDialog.showModal();
+        }
+
+        function openGuest() {
+            choiceDialog.close();
+            document.getElementById("guestPhone").value = "";
+            document.getElementById("guestPin").value = "";
+            guestDialog.showModal();
+        }
+
+        function openLogin() {
+            choiceDialog.close();
+            loginDialog.showModal();
+        }
+
+        function backToChoice(dialog) {
+            dialog.close();
+            choiceDialog.showModal();
+        }
+
+
+        // 비회원 정보 확인
+
+        function confirmGuest() {
+
+            const phone = document.getElementById("guestPhone")
+                .value.replace(/-/g, "");
+
+            const pin = document.getElementById("guestPin").value;
+
+            if (!/^010[0-9]{8}$/.test(phone)) {
+                alert("휴대폰 번호를 정확하게 입력해 주세요.");
+                return;
+            }
+
+            if (!/^[0-9]{4}$/.test(pin)) {
+                alert("비밀번호는 숫자 4자리로 입력해 주세요.");
+                return;
+            }
+
+            currentWriter = {
+                type: "guest",
+                name: "비회원",
+                phone: phone,
+                pin: pin
+            };
+
+            document.getElementById("guestPin").value = "";
+
+            guestDialog.close();
+
+            openWrite();
+
+        }
+
+
+        // 아이디 로그인 팝업
+
+        function openIdLogin() {
+            loginDialog.close();
+            idDialog.showModal();
+        }
+
+        function openEasyAuth() {
+            loginDialog.close();
+            authDialog.showModal();
+        }
+
+
+        // 실습용 아이디 로그인
+
+        function confirmIdLogin() {
+
+            const id = document.getElementById("memberId").value.trim();
+            const password = document.getElementById("memberPassword").value;
+
+            if (!id || !password) {
+                alert("아이디와 비밀번호를 입력해 주세요.");
+                return;
+            }
+
+            document.getElementById("memberPassword").value = "";
+
+            demoLogin("아이디", id);
+
+        }
+
+
+        // 실습용 간편 로그인 및 간편인증
+
+        function demoLogin(method, id = "demo") {
+
+            if (!confirm(method + " 로그인 시연입니다. 계속할까요?")) {
+                return;
+            }
+
+            currentWriter = {
+                type: "member",
+                name: method + " 회원 (실습)",
+                key: method + ":" + id
+            };
+
+            [loginDialog, idDialog, authDialog].forEach(function(dialog) {
+                if (dialog.open) {
+                    dialog.close();
+                }
+            });
+
+            openWrite();
+
+        }
+
+
+        // 게시글 작성 화면
+
+        function openWrite() {
+
+            editingId = null;
+
+            document.getElementById("writeHeading").textContent = "게시글 작성";
+            document.getElementById("savePostButton").textContent = "등록하기";
+            document.getElementById("writerInfo").textContent = currentWriter.name;
+
+            document.getElementById("postTitle").value = "";
+            document.getElementById("postContent").value = "";
+
+            document.getElementById("postCategory").value =
+                currentCategory === "question" ? "question" : "review";
+
+            writeDialog.showModal();
+
+        }
+
+
+        // 게시글 등록 및 수정
+
+        function savePost() {
+
+            const category = document.getElementById("postCategory").value;
+
+            const title = document.getElementById("postTitle").value.trim();
+
+            const content = document.getElementById("postContent").value.trim();
+
+            if (!title || !content) {
+                alert("제목과 내용을 입력해 주세요.");
+                return;
+            }
+
+            if (editingId !== null) {
+
+                const post = posts.find(function(item) {
+                    return item.id === editingId;
+                });
+
+                if (!post) return;
+
+                post.title = title;
+                post.content = content;
+                post.category = category;
+
+            } else {
+
+                if (!currentWriter) return;
+
+                posts.unshift({
+                    id: Date.now(),
+                    category: category,
+                    title: title,
+                    content: content,
+                    writer: currentWriter.name,
+                    owner: { ...currentWriter },
+                    date: new Date().toLocaleDateString("ko-KR")
+                });
+
+            }
+
+            writeDialog.close();
+
+            editingId = null;
+
+            document.getElementById("communitySearch").value = "";
+
+            const tabs = document.querySelectorAll(".community-tab");
+
+            filterPosts(tabs[category === "review" ? 2 : 3], category);
+
+        }
+
+
+        // 탭메뉴 변경
+
+        function filterPosts(button, category) {
+
+            currentCategory = category;
+
+            document.querySelectorAll(".community-tab")
+                .forEach(function(tab) {
+                    tab.classList.remove("active");
+                });
+
+            button.classList.add("active");
+
+            renderPosts();
+
+        }
+
+
+        // 게시글 화면 출력
+
+        function renderPosts() {
+
+            const list = document.getElementById("postList");
+
+            const keyword = document.getElementById("communitySearch")
+                .value.toLowerCase();
+
+            list.replaceChildren();
+
+            const filtered = posts.filter(function(post) {
+
+                return post.category === currentCategory &&
+                    (post.title + " " + post.content)
+                        .toLowerCase().includes(keyword);
+
+            });
+
+            if (filtered.length === 0) {
+                const empty = document.createElement("p");
+                empty.className = "popup-notice";
+                empty.textContent = "등록된 게시글이 없습니다.";
+                list.append(empty);
+            }
+
+            filtered.forEach(function(post) {
+
+                const article = document.createElement("article");
+                article.className = "community-post";
+
+                const category = document.createElement("span");
+                category.className = "community-category";
+                category.textContent = categories[post.category];
+
+                const title = document.createElement("h3");
+                title.textContent = post.title;
+
+                const content = document.createElement("p");
+                content.textContent = post.content;
+
+                const date = document.createElement("span");
+                date.className = "community-date";
+                date.textContent = post.writer + " · " + post.date;
+
+                article.append(category, title, content, date);
+
+                if (post.owner) {
+
+                    const actions = document.createElement("div");
+                    actions.className = "post-actions";
+
+                    const edit = document.createElement("button");
+                    edit.textContent = "수정";
+
+                    edit.onclick = function() {
+                        requestAction(post.id, "edit");
+                    };
+
+                    const remove = document.createElement("button");
+                    remove.textContent = "삭제";
+
+                    remove.onclick = function() {
+                        requestAction(post.id, "delete");
+                    };
+
+                    actions.append(edit, remove);
+                    article.append(actions);
+
+                }
+
+                list.append(article);
+
+            });
+
+        }
+
+
+        // 수정 및 삭제 요청
+
+        function requestAction(id, action) {
+
+            const post = posts.find(function(item) {
+                return item.id === id;
+            });
+
+            if (!post || !post.owner) return;
+
+            targetId = id;
+            targetAction = action;
+
+            if (post.owner.type === "guest") {
+
+                document.getElementById("verifyTitle").textContent =
+                    action === "edit" ? "게시글 수정" : "게시글 삭제";
+
+                document.getElementById("verifyPhone").value = "";
+                document.getElementById("verifyPin").value = "";
+
+                verifyDialog.showModal();
+
+            } else {
+
+                if (currentWriter &&
+                    currentWriter.type === "member" &&
+                    currentWriter.key === post.owner.key) {
+
+                    completeAction();
+
+                } else {
+
+                    alert("게시글을 작성한 회원으로 확인되어야 합니다. 실습에서는 작성 직후 수정 및 삭제를 테스트해 주세요.");
+
+                }
+
+            }
+
+        }
+
+
+        // 비회원 작성 정보 일치 확인
+
+        function verifyPost() {
+
+            const post = posts.find(function(item) {
+                return item.id === targetId;
+            });
+
+            const phone = document.getElementById("verifyPhone")
+                .value.replace(/-/g, "");
+
+            const pin = document.getElementById("verifyPin").value;
+
+            if (!post || !post.owner ||
+                post.owner.phone !== phone ||
+                post.owner.pin !== pin) {
+
+                alert("휴대폰 번호 또는 비밀번호가 일치하지 않습니다.");
+                return;
+
+            }
+
+            document.getElementById("verifyPin").value = "";
+
+            verifyDialog.close();
+
+            completeAction();
+
+        }
+
+
+        // 게시글 수정 또는 삭제 실행
+
+        function completeAction() {
+
+            const post = posts.find(function(item) {
+                return item.id === targetId;
+            });
+
+            if (!post) return;
+
+            // 삭제하기
+
+            if (targetAction === "delete") {
+
+                if (confirm("정말 게시글을 삭제하시겠습니까?")) {
+
+                    posts = posts.filter(function(item) {
+                        return item.id !== targetId;
+                    });
+
+                    renderPosts();
+
+                }
+
+            } else {
+
+                // 수정하기
+
+                editingId = post.id;
+
+                document.getElementById("writeHeading").textContent = "게시글 수정";
+                document.getElementById("savePostButton").textContent = "수정 완료";
+                document.getElementById("writerInfo").textContent = post.writer;
+
+                document.getElementById("postCategory").value = post.category;
+                document.getElementById("postTitle").value = post.title;
+                document.getElementById("postContent").value = post.content;
+
+                writeDialog.showModal();
+
+            }
+
+        }
+
+
+        // 처음 화면 실행
+
+        renderPosts();
+
+    </script>
 
 </body>
 </html>

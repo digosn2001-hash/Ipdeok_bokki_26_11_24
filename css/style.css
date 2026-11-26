@@ -67,6 +67,21 @@ ul {
     object-fit: contain;
 }
 
+.header .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.header .brand-name {
+    font-size: 24px;
+    font-weight: 700;
+    color: #b83225;
+    white-space: nowrap;
+}
+
+
 /* 햄버거 아이콘 */
 
 .menu-button {
@@ -203,6 +218,62 @@ body.menu-open {
 }
 
 
+/* 회원 정보 */
+
+.member-info {
+    padding: 25px 20px;
+    border-bottom: 1px solid #dddddd;
+}
+
+.member-info[hidden] {
+    display: none;
+}
+
+.member-name-box {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+#memberName {
+    font-size: 24px;
+    font-weight: 700;
+    color: #222222;
+}
+
+.membership {
+    font-size: 11px;
+    font-weight: 500;
+    color: #b83225;
+}
+
+.member-welcome {
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 8px;
+    color: #333333;
+}
+
+.member-delivery {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    padding: 15px 0;
+    margin-top: 15px;
+
+    background: none;
+    border: none;
+
+    font-size: 18px;
+    font-weight: 500;
+    color: #333333;
+
+    cursor: pointer;
+}
+
+
 /* =========================
    04. HERO 메인 배너
 ========================= */
@@ -305,16 +376,39 @@ body.menu-open {
 ========================= */
 
 .section_2 {
-    padding: 110px 0 100px;
+    --unit: min(1vw, 7.68px);
+
+    padding: 31.5% 0 17%;
     background-color: #ded3d3;
     overflow: hidden;
 }
 
+
+/* 추천 메뉴 제목 */
+
+.section_2 .section-title {
+    font-size: calc(var(--unit) * 8.5);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+
+/* 추천 해시태그 */
+
 .section_2 .tab-list {
     padding: 0 20px;
+    margin: 8% 0 0;
 }
 
 .section_2 .tab {
+    flex: none;
+
+    width: calc(var(--unit) * 23);
+    max-width: none;
+    height: calc(var(--unit) * 8.7);
+
+    font-size: calc(var(--unit) * 2.9);
+
     color: #ffffff;
     border-color: #ffffff;
 }
@@ -324,97 +418,198 @@ body.menu-open {
     border-color: #846363;
 }
 
-/* 추천 메뉴 카드 3개 */
+
+/* 추천 메뉴 슬라이드 */
 
 .recommend-slider {
+    position: relative;
     width: 100%;
 
     display: flex;
     justify-content: center;
     align-items: flex-start;
 
-    gap: 24px;
-
-    padding-top: 55px;
-    padding-bottom: 40px;
+    padding: 15.7% 0 9.5%;
 }
+
+
+/* 추천 메뉴 카드 */
 
 .recommend-card {
     position: relative;
 
-    flex: 0 0 70%;
-    max-width: 330px;
-    height: 310px;
+    flex: none;
+    width: 66.4%;
 
-    padding: 20px 10px;
+    aspect-ratio: 381 / 439;
+
+    padding: calc(var(--unit) * 5.5) 10px 0;
 
     background-color: #877a7a;
-    border-radius: 16px;
+    border-radius: calc(var(--unit) * 3.7);
 
     color: #ffffff;
     text-align: center;
 }
 
-/* 왼쪽과 오른쪽에는 배경 박스만 표시 */
+
+/* 양쪽 사각형 */
+
+.recommend-slider .side-card {
+    position: absolute;
+    padding: 0;
+}
 
 .left-card {
-    transform: translateY(-35px);
+    left: -57.4%;
+    top: calc(var(--unit) * 7);
 }
 
 .right-card {
-    transform: translateY(-50px);
+    right: -58.4%;
+    top: calc(var(--unit) * 2.7);
 }
 
-/* 가운데 카드 */
+
+/* BEST 번호 */
 
 .best {
-    font-size: 16px;
+    font-size: calc(var(--unit) * 4.2);
     font-weight: 700;
-    margin-bottom: 6px;
+    line-height: 1.2;
+
+    margin-bottom: calc(var(--unit) * 2.4);
 }
+
+
+/* 추천 메뉴 이름 */
 
 .recommend-card h3 {
-    font-size: 20px;
-    font-weight: 500;
+    font-size: calc(var(--unit) * 5);
+    font-weight: 700;
+    line-height: 1.2;
 }
 
+
+/* 주문하기 버튼 */
+
 .recommend-order {
-    width: 140px;
-    height: 42px;
+    width: 55%;
+    height: calc(var(--unit) * 10.3);
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    margin: 20px auto 0;
+    margin: calc(var(--unit) * 6) auto 0;
 
     border: 1px solid #ffffff;
-    border-radius: 18px;
+    border-radius: calc(var(--unit) * 4);
 
-    font-size: 14px;
+    font-size: calc(var(--unit) * 3.5);
     font-weight: 500;
+
     color: #ffffff;
 }
 
-/* 가운데 카드에만 이미지 삽입 */
 
-.recommend-image {
+/* 추천 메뉴 사진 */
+
+.recommend-slider .recommend-image {
     position: absolute;
-    bottom: -40px;
+
     left: 50%;
+    bottom: -12.3%;
 
     transform: translateX(-50%);
 
     width: 65%;
-    max-width: 200px;
     aspect-ratio: 1 / 1;
 
-    background-color: #443d3d;
-    background-image: url("../img/recommend-1.png");
-
-    background-size: contain;
+    background-image: url("../img/menu-2.jpg");
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+
+    background-color: transparent;
+
+    overflow: hidden;
+}
+
+
+/* 사진 가장자리 여백 제거 */
+
+.recommend-slider .recommend-image::before {
+    content: "";
+
+    position: absolute;
+    inset: -5%;
+
+    background-image: inherit;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+/* 추천 메뉴 화살표 */
+
+.recommend-prev,
+.recommend-next {
+    position: absolute;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 48px;
+    max-width: 13.5%;
+    height: 60px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: clamp(16px, 3vw, 28px);
+    font-weight: 700;
+
+    color: #ffffff;
+
+    background: none;
+    border: none;
+
+    cursor: pointer;
+}
+
+.recommend-prev {
+    right: 0;
+}
+
+.recommend-next {
+    left: 0;
+}
+
+.recommend-prev:active,
+.recommend-next:active {
+    opacity: 0.5;
+}
+
+
+/* 추천 메뉴 전환 효과 */
+
+.recommend-slider .main-card.changing {
+    animation: recommendChange 0.35s ease;
+}
+
+@keyframes recommendChange {
+    from {
+        opacity: 0.3;
+        transform: translateX(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 
@@ -434,6 +629,7 @@ body.menu-open {
 
 .menu-card {
     min-width: 0;
+    cursor: pointer;
 }
 
 .menu-image {
@@ -478,7 +674,11 @@ body.menu-open {
 
 .section_4 {
     padding: 20px 0 100px;
+    overflow: hidden;
 }
+
+
+/* 이벤트 안내 문구 */
 
 .event-description {
     font-size: 14px;
@@ -491,6 +691,9 @@ body.menu-open {
     margin-top: 12px;
     margin-bottom: 24px;
 }
+
+
+/* 이벤트 탭메뉴 */
 
 .event-tabs {
     width: 100%;
@@ -508,6 +711,8 @@ body.menu-open {
     font-size: 14px;
     font-weight: 500;
     color: #838383;
+
+    cursor: pointer;
 }
 
 .event-tab.active {
@@ -515,28 +720,90 @@ body.menu-open {
     color: #000000;
 }
 
+
+/* 이벤트 가로 슬라이드 */
+
 .event-list {
-    padding: 45px 20px 0;
+    display: flex;
+    gap: 16px;
+
+    width: 100%;
+    padding: 45px 20px 20px;
+
+    overflow-x: auto;
+
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 20px;
+    scroll-behavior: smooth;
+
+    scrollbar-width: none;
 }
 
+.event-list::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* 이벤트 카드 */
+
 .event-card {
-    width: 100%;
+    flex: 0 0 90%;
+    min-width: 0;
+
+    background-color: #ffffff;
+
     border: 1px solid #e0dcdc;
     border-radius: 16px;
+
     overflow: hidden;
+
+    scroll-snap-align: start;
 }
+
+
+/* 이벤트 사진 공통 */
 
 .event-image {
     width: 100%;
-    aspect-ratio: 1.45 / 1;
+    aspect-ratio: 1 / 1;
 
-    background-color: #ada5a5;
-    background-image: url("../img/event-1.jpg");
+    background-color: #ffffff;
 
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
 }
+
+
+/* 신규 고객 할인 */
+
+.event-img-1 {
+    background-image: url("../img/event-01.jpg");
+}
+
+
+/* 포장 할인 */
+
+.event-img-2 {
+    background-image: url("../img/event-02.jpg");
+}
+
+
+/* 감사 할인 */
+
+.event-img-3 {
+    background-image: url("../img/event-03.jpg");
+}
+
+
+/* 재주문 할인 */
+
+.event-img-4 {
+    background-image: url("../img/event-04.jpg");
+}
+
+
+/* 이벤트 내용 */
 
 .event-content {
     padding: 16px 12px 24px;
@@ -557,6 +824,8 @@ body.menu-open {
 
     line-height: 1.5;
     margin-bottom: 10px;
+
+    word-break: keep-all;
 }
 
 .event-date {
@@ -565,9 +834,1473 @@ body.menu-open {
     color: #555555;
 }
 
+
+/* =========================
+   10. 배달 현황 팝업
+========================= */
+
+.delivery-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.delivery-popup.active {
+    display: flex;
+}
+
+
+/* 팝업 전체 박스 */
+
+.delivery-popup-box {
+    width: 90%;
+    max-width: 400px;
+    max-height: 85vh;
+
+    padding: 25px;
+    background-color: #ffffff;
+
+    border-radius: 20px;
+    box-sizing: border-box;
+
+    overflow-y: auto;
+}
+
+
+/* 팝업 제목 */
+
+.delivery-popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 1px solid #eeeeee;
+    padding-bottom: 15px;
+}
+
+.delivery-popup-header h2 {
+    font-size: 22px;
+    margin: 0;
+}
+
+.delivery-popup-header button {
+    border: none;
+    background: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+
+/* 예상 도착 시간 */
+
+.delivery-time {
+    text-align: center;
+    padding: 25px 0;
+}
+
+.delivery-time h2 {
+    font-size: 36px;
+    color: #b83225;
+    margin: 15px 0;
+}
+
+.delivery-time h3 {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.delivery-time p {
+    font-size: 14px;
+    color: #777777;
+}
+
+.delivery-icon {
+    font-size: 65px;
+    margin: 15px 0;
+}
+
+
+/* 배달 진행 단계 */
+
+.delivery-status {
+    padding: 15px 0;
+    border-top: 1px solid #eeeeee;
+}
+
+.delivery-step {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    min-height: 60px;
+    color: #aaaaaa;
+}
+
+.delivery-step span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 35px;
+    height: 35px;
+
+    background-color: #eeeeee;
+    border-radius: 50%;
+}
+
+
+/* 완료된 단계 */
+
+.delivery-step.completed {
+    color: #333333;
+}
+
+.delivery-step.completed span {
+    background-color: #ffe4dc;
+    color: #b83225;
+}
+
+
+/* 현재 진행 중인 단계 */
+
+.delivery-step.active {
+    color: #b83225;
+    font-weight: 700;
+}
+
+.delivery-step.active span {
+    background-color: #b83225;
+    color: #ffffff;
+}
+
+
+/* 주문 정보 */
+
+.delivery-order-info {
+    border-top: 1px solid #eeeeee;
+    padding: 20px 0;
+}
+
+.delivery-order-info h3 {
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.delivery-order-info p {
+    font-size: 14px;
+    color: #666666;
+    margin: 8px 0;
+}
+
+
+/* 확인 버튼 */
+
+.delivery-confirm {
+    width: 100%;
+    padding: 15px;
+
+    background-color: #b83225;
+    color: #ffffff;
+
+    border: none;
+    border-radius: 10px;
+
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+
+/* =========================
+   11. 전화 주문
+========================= */
+
+.phone-call-button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+
+    background-color: #b83225;
+    color: #ffffff;
+
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    box-sizing: border-box;
+
+    font-weight: 700;
+}
+
+.phone-cancel-button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 10px;
+
+    background-color: #ffffff;
+
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+/* =========================
+   12. 쿠폰 변경 화면
+========================= */
+
+.coupon-page {
+    width: 100%;
+    min-height: 100vh;
+
+    background-color: #f7f7f7;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+#couponPage[hidden] {
+    display: none;
+}
+
+
+/* 쿠폰 페이지 상단 */
+
+.coupon-top {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    padding: 20px;
+    background-color: #ffffff;
+
+    border-bottom: 1px solid #eeeeee;
+}
+
+.coupon-top button {
+    border: none;
+    background: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.coupon-top h2 {
+    font-size: 22px;
+    margin: 0;
+}
+
+
+/* 쿠폰 목록 */
+
+.coupon-section {
+    width: 100%;
+    max-width: 500px;
+    padding: 25px 20px;
+
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.coupon-section > h3 {
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+.coupon-section > h3 span {
+    color: #b83225;
+}
+
+
+/* 쿠폰 카드 */
+
+.coupon-card {
+    padding: 25px;
+    margin-bottom: 20px;
+
+    background-color: #ffffff;
+
+    border: 1px solid #dddddd;
+    border-radius: 15px;
+}
+
+.coupon-card h3 {
+    font-size: 17px;
+    color: #333333;
+    margin: 0 0 15px;
+}
+
+.coupon-card h2 {
+    font-size: 30px;
+    color: #b83225;
+    margin: 15px 0;
+}
+
+
+/* 쿠폰 사용 기한 */
+
+.coupon-card p {
+    font-size: 13px;
+    color: #777777;
+    margin: 15px 0 20px;
+}
+
+
+/* 쿠폰 적용 버튼 */
+
+.coupon-button {
+    width: 100%;
+    padding: 15px;
+
+    background-color: #b83225;
+    color: #ffffff;
+
+    border: none;
+    border-radius: 10px;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.coupon-button.applied {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+
+/* 기간 만료 쿠폰 */
+
+.coupon-button.expired,
+.coupon-button:disabled {
+    background-color: #dddddd;
+    color: #888888;
+    cursor: not-allowed;
+}
+
+
+/* 쿠폰 안내 */
+
+.coupon-notice {
+    font-size: 12px;
+    color: #777777;
+    text-align: center;
+    margin: 25px 0;
+}
+
+
+/* 홈으로 돌아가기 */
+
+.coupon-home {
+    width: 100%;
+    padding: 15px;
+
+    background-color: #ffffff;
+    color: #333333;
+
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+/* =========================
+   13. 커뮤니티 페이지
+========================= */
+
+
+/* 커뮤니티 제목 */
+
+.community-section_1 {
+    padding: 40px 20px;
+    background-color: #ffffff;
+}
+
+.community-section_1 h1 {
+    font-size: 28px;
+    margin: 0 0 15px;
+}
+
+.community-section_1 p {
+    font-size: 14px;
+    color: #777777;
+}
+
+
+/* 커뮤니티 탭메뉴 */
+
+.community-section_2 {
+    padding: 0 15px;
+    background-color: #ffffff;
+}
+
+.community-tabs {
+    display: flex;
+    border-bottom: 1px solid #dddddd;
+}
+
+.community-tab {
+    flex: 1;
+    padding: 15px 2px;
+
+    background: none;
+    border: none;
+
+    font-size: 14px;
+    color: #777777;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.community-tab.active {
+    color: #b83225;
+    font-weight: 700;
+    border-bottom: 3px solid #b83225;
+}
+
+
+/* 커뮤니티 검색 */
+
+.community-section_3 {
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+}
+
+.community-section_3 input {
+    flex: 1;
+    min-width: 0;
+    padding: 12px;
+
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.community-section_3 button {
+    padding: 12px 20px;
+
+    border: none;
+    border-radius: 8px;
+
+    background-color: #333333;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+
+/* 게시글 */
+
+.community-section_4 {
+    padding: 0 20px;
+}
+
+.community-post {
+    padding: 25px 0;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.community-post[hidden] {
+    display: none;
+}
+
+.community-category {
+    font-size: 12px;
+    color: #b83225;
+    font-weight: 700;
+}
+
+.community-post h3 {
+    font-size: 18px;
+    margin: 12px 0;
+    overflow-wrap: anywhere;
+}
+
+.community-post p {
+    font-size: 14px;
+    color: #666666;
+    margin: 10px 0;
+
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.community-date {
+    font-size: 12px;
+    color: #999999;
+}
+
+
+/* 글쓰기 버튼 */
+
+.community-section_5 {
+    padding: 25px 20px;
+}
+
+.community-write {
+    width: 100%;
+    padding: 15px;
+
+    background-color: #b83225;
+    color: #ffffff;
+
+    border: none;
+    border-radius: 10px;
+
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+
+/* 글쓰기 팝업 */
+
+#writeDialog {
+    position: fixed;
+    inset: 0;
+    margin: auto;
+
+    width: 90%;
+    max-width: 400px;
+    padding: 25px;
+
+    border: none;
+    border-radius: 20px;
+    background-color: #ffffff;
+    box-sizing: border-box;
+}
+
+#writeDialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#writeDialog h2 {
+    margin: 0 0 20px;
+}
+
+#writeDialog input,
+#writeDialog select,
+#writeDialog textarea {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 15px 0;
+
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+#writeDialog textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.community-cancel {
+    width: 100%;
+    padding: 15px;
+    margin-top: 10px;
+
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   14. 커뮤니티 공통 팝업
+========================= */
+
+.community-dialog {
+    position: fixed;
+    inset: 0;
+    margin: auto;
+
+    width: 90%;
+    max-width: 400px;
+    max-height: 85vh;
+
+    padding: 25px;
+
+    background-color: #ffffff;
+    color: #222222;
+
+    border: none;
+    border-radius: 20px;
+
+    box-sizing: border-box;
+    overflow-y: auto;
+
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.community-dialog:not([open]) {
+    display: none;
+}
+
+.community-dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+/* 팝업 제목 */
+
+.popup-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+
+    border-bottom: 1px solid #eeeeee;
+}
+
+.popup-heading h2 {
+    font-size: 22px;
+    margin: 0;
+}
+
+.popup-heading button {
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+
+/* 팝업 설명 */
+
+.community-dialog p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #777777;
+    margin: 15px 0;
+}
+
+.community-dialog label {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    margin: 18px 0 8px;
+}
+
+
+/* 팝업 입력창 */
+
+.community-dialog input,
+.community-dialog select,
+.community-dialog textarea {
+    display: block;
+
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 15px;
+
+    background-color: #ffffff;
+    color: #222222;
+
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+
+    box-sizing: border-box;
+
+    font-size: 14px;
+    font-family: inherit;
+}
+
+.community-dialog textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.community-dialog input:focus,
+.community-dialog textarea:focus {
+    outline: 2px solid #b83225;
+}
+
+
+/* 비회원 및 인증 선택 버튼 */
+
+.guest-choice {
+    display: block;
+
+    width: 100%;
+    padding: 17px;
+    margin-bottom: 12px;
+
+    background-color: #ffffff;
+    color: #333333;
+
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.guest-choice:hover {
+    background-color: #f5f5f5;
+}
+
+.guest-choice small,
+.community-write small {
+    display: block;
+    font-size: 12px;
+    font-weight: 400;
+    margin-top: 8px;
+}
+
+.popup-notice {
+    font-size: 12px !important;
+    line-height: 1.6;
+    color: #888888;
+
+    text-align: center;
+    padding: 10px 0;
+}
+
+
+/* 게시글 수정 및 삭제 */
+
+.post-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.post-actions button {
+    padding: 8px 15px;
+
+    border: 1px solid #dddddd;
+    border-radius: 6px;
+
+    background-color: #ffffff;
+    color: #555555;
+
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.post-actions button:hover {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+
+/* =========================
+   15. 로그인 페이지
+========================= */
+
+
+/* 로그인 제목 */
+
+.login-section_1 {
+    padding: 50px 20px 30px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.login-logo {
+    width: 150px;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+
+.login-section_1 h1 {
+    font-size: 28px;
+    color: #222222;
+    margin: 15px 0;
+}
+
+.login-section_1 p {
+    font-size: 14px;
+    color: #777777;
+}
+
+
+/* 아이디 및 비밀번호 */
+
+.login-section_2 {
+    padding: 20px 25px 30px;
+    background-color: #ffffff;
+}
+
+.login-section_2 form > label {
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.login-section_2 input[type="text"],
+.login-section_2 input[type="password"] {
+    width: 100%;
+    min-width: 0;
+    padding: 16px;
+    margin-bottom: 20px;
+
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.login-section_2 input:focus {
+    outline: 2px solid #b83225;
+    outline-offset: 1px;
+}
+
+
+/* 비밀번호 보기 */
+
+.login-password-box {
+    position: relative;
+}
+
+.login-password-box input {
+    padding-right: 75px !important;
+}
+
+.login-password-box button {
+    position: absolute;
+    top: 16px;
+    right: 15px;
+
+    background: none;
+    border: none;
+
+    font-size: 13px;
+    color: #777777;
+    cursor: pointer;
+}
+
+
+/* 아이디 저장 */
+
+.login-save {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    font-size: 14px;
+    color: #555555;
+
+    margin-bottom: 25px;
+}
+
+.login-save input {
+    accent-color: #b83225;
+}
+
+
+/* 로그인 버튼 */
+
+.login-button {
+    display: block;
+    width: 100%;
+    padding: 17px;
+
+    background-color: #b83225;
+    color: #ffffff;
+
+    border: none;
+    border-radius: 10px;
+
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.login-button:hover {
+    background-color: #96291e;
+}
+
+#loginMessage {
+    font-size: 13px;
+    text-align: center;
+    margin-top: 12px;
+}
+
+
+/* 아이디 찾기 및 회원가입 */
+
+.login-section_3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    padding: 15px 10px 30px;
+}
+
+.login-section_3 button {
+    background: none;
+    border: none;
+
+    font-size: 12px;
+    color: #555555;
+
+    cursor: pointer;
+}
+
+.login-section_3 span {
+    font-size: 12px;
+    color: #cccccc;
+}
+
+
+/* 간편 로그인 */
+
+.login-section_4 {
+    padding: 25px 25px 40px;
+    border-top: 1px solid #eeeeee;
+}
+
+.login-section_4 p {
+    font-size: 14px;
+    color: #888888;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.social-login {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    margin-bottom: 12px;
+
+    border: none;
+    border-radius: 10px;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+
+/* 카카오 로그인 */
+
+.kakao-login {
+    background-color: #fee500;
+    color: #222222;
+}
+
+
+/* 네이버 로그인 */
+
+.naver-login {
+    background-color: #03c75a;
+    color: #ffffff;
+}
+
+
+/* 구글 로그인 */
+
+.google-login {
+    background-color: #ffffff;
+    color: #333333;
+    border: 1px solid #dddddd;
+}
+
+
+/* 애플 로그인 */
+
+.apple-login {
+    background-color: #111111;
+    color: #ffffff;
+}
+
+
+/* 로그인 구분 */
+
+.login-divider {
+    text-align: center;
+    font-size: 13px;
+    color: #999999;
+    padding: 10px 0;
+}
+
+
+/* 간편인증 */
+
+.login-section_5 {
+    padding: 0 25px 40px;
+    text-align: center;
+}
+
+.login-section_5 > p {
+    color: #888888;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.easy-auth-button {
+    width: 100%;
+    padding: 17px;
+
+    background-color: #ffffff;
+    color: #333333;
+
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.easy-auth-button:hover {
+    background-color: #f5f5f5;
+}
+
+
+/* =========================
+   16. 메뉴 상세정보 팝업
+========================= */
+
+#foodDetailPopup {
+    position: fixed;
+    inset: 0;
+    margin: auto;
+
+    width: 90%;
+    max-width: 430px;
+    max-height: 85vh;
+    max-height: 85dvh;
+
+    padding: 25px;
+
+    background-color: #ffffff;
+
+    border: none;
+    border-radius: 20px;
+
+    overflow-y: auto;
+    box-sizing: border-box;
+
+    font-family: inherit;
+}
+
+#foodDetailPopup:not([open]) {
+    display: none;
+}
+
+#foodDetailPopup::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+/* 메뉴 상세 제목 */
+
+.food-detail-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 20px;
+}
+
+.food-detail-header h2 {
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.food-detail-header button {
+    font-size: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+
+/* 메뉴 상세 사진 */
+
+.food-detail-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border-radius: 12px;
+
+    margin-bottom: 25px;
+}
+
+
+/* 매운맛 선택 영역 */
+
+.food-spicy-section h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.spicy-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    width: 100%;
+    padding: 15px 12px;
+    margin-bottom: 10px;
+
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+
+    background-color: #ffffff;
+
+    cursor: pointer;
+}
+
+.spicy-option:has(input:checked) {
+    border-color: #846363;
+    background-color: #f3e9e9;
+}
+
+.spicy-option input {
+    accent-color: #846363;
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+}
+
+.spicy-option div {
+    flex: 1;
+}
+
+.spicy-option strong {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.spicy-option p {
+    font-size: 12px;
+    color: #777777;
+    margin-top: 5px;
+}
+
+.spicy-option span {
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+
+/* 매운맛 안내 */
+
+.spicy-notice {
+    font-size: 11px;
+    color: #999999;
+    line-height: 1.6;
+    margin-top: 12px;
+}
+
+
+/* 메뉴 설명 */
+
+.food-description {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #dddddd;
+}
+
+.food-description h3 {
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.food-description p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #555555;
+    word-break: keep-all;
+}
+
+
+/* 상세정보 확인 버튼 */
+
+.food-detail-confirm {
+    width: 100%;
+    padding: 15px;
+
+    margin-top: 25px;
+
+    background-color: #846363;
+    color: #ffffff;
+
+    border: none;
+    border-radius: 10px;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.food-detail-confirm:hover {
+    background-color: #6d5151;
+}
+
+
+/* =========================
+   17. 애니메이션 접근성
+========================= */
+
 @media (prefers-reduced-motion: reduce) {
+
     .side-menu,
     .menu-overlay {
         transition: none;
     }
+
+    .recommend-slider .main-card.changing {
+        animation: none;
+    }
+
+    .event-list {
+        scroll-behavior: auto;
+    }
+
+}
+
+
+/* =========================
+   18. 회원가입 및 회원관리
+========================= */
+
+[hidden] {
+    display: none !important;
+}
+
+
+/* 회원가입 화면 */
+
+.register-section {
+    padding: 20px 25px 60px;
+    background-color: #ffffff;
+}
+
+.register-section form > label {
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.register-section input[type="text"],
+.register-section input[type="password"] {
+    width: 100%;
+    min-width: 0;
+
+    padding: 16px;
+    margin-bottom: 22px;
+
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+
+    font-size: 14px;
+    font-family: inherit;
+}
+
+.register-section input:focus {
+    outline: 2px solid #b83225;
+}
+
+
+/* 아이디 중복 확인 */
+
+.register-id-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.register-id-row input {
+    flex: 1;
+}
+
+.register-id-row button {
+    flex-shrink: 0;
+
+    padding: 16px 12px;
+
+    background-color: #846363;
+    color: #ffffff;
+
+    border-radius: 10px;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+#idCheckMessage {
+    font-size: 12px;
+    margin: -12px 0 20px;
+}
+
+
+/* 이용약관 */
+
+.register-agreements {
+    padding: 20px;
+    margin: 10px 0 20px;
+
+    border: 1px solid #dddddd;
+    border-radius: 12px;
+}
+
+.register-agreements label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 13px;
+    margin: 15px 0;
+
+    cursor: pointer;
+}
+
+.register-agreements input {
+    accent-color: #b83225;
+}
+
+.register-agreements hr {
+    border: none;
+    border-top: 1px solid #dddddd;
+}
+
+.register-notice {
+    font-size: 12px;
+    line-height: 1.6;
+    color: #999999;
+    margin-bottom: 20px;
+}
+
+.register-back {
+    display: block;
+    width: 100%;
+
+    padding: 20px 0;
+
+    font-size: 13px;
+    color: #777777;
+}
+
+
+/* 비회원 햄버거 메뉴 */
+
+.guest-info {
+    padding: 25px 10px;
+    border-bottom: 1px solid #dddddd;
+}
+
+.guest-info h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.guest-info p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #777777;
+    margin-bottom: 20px;
+}
+
+.guest-login-button,
+.guest-register-button {
+    display: block;
+
+    width: 100%;
+    padding: 13px;
+
+    margin-bottom: 10px;
+
+    border-radius: 10px;
+    text-align: center;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.guest-login-button {
+    background-color: #b83225;
+    color: #ffffff;
+}
+
+.guest-register-button {
+    background-color: #ffffff;
+    color: #b83225;
+    border: 1px solid #b83225;
+}
+
+
+/* 회원 혜택 */
+
+.member-benefits {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+.member-benefit {
+    padding: 15px 5px;
+
+    background-color: #f5eeee;
+    border-radius: 10px;
+
+    text-align: center;
+}
+
+.member-benefit p {
+    font-size: 12px;
+    color: #555555;
+}
+
+.member-benefit strong {
+    display: block;
+
+    font-size: 20px;
+    color: #b83225;
+
+    margin-top: 8px;
+}
+
+.member-logout {
+    width: 100%;
+
+    margin-top: 15px;
+    padding: 12px;
+
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+
+    color: #555555;
+    font-size: 13px;
 }

@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>상세페이지</title>
+
+    <link rel="stylesheet" href="../css/detail.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <header class="sub-header">
+            <a href="../../lists/img/lists.html">〈</a>
+            <h1>상세 메뉴</h1>
+            <a href="../../../index.html">⌂</a>
+        </header>
+
+        <div class="detail-image"></div>
+
+        <section class="detail-info">
+
+            <h2>오리지널 떡볶이</h2>
+
+            <p class="description">
+                매콤하고 맛있는 입떡볶이의 대표 메뉴입니다.
+            </p>
+
+            <strong class="price">14,000원</strong>
+
+        </section>
+
+        <section class="option-section">
+
+            <h3>맵기 선택</h3>
+
+            <label>
+                <input type="radio" name="spicy" checked>
+                순한맛
+            </label>
+
+            <label>
+                <input type="radio" name="spicy">
+                보통맛
+            </label>
+
+            <label>
+                <input type="radio" name="spicy">
+                매운맛
+            </label>
+
+        </section>
+
+        <section class="option-section">
+
+            <h3>추가 토핑</h3>
+
+            <label>
+                <input type="checkbox" class="extra" value="2000">
+                치즈 추가 (+2,000원)
+            </label>
+
+            <label>
+                <input type="checkbox" class="extra" value="1000">
+                떡 추가 (+1,000원)
+            </label>
+
+        </section>
+
+        <div class="order-area">
+
+            <a href="../../payment/img/payment.html"
+                class="order-button" id="orderButton">
+                14,000원 주문하기
+            </a>
+
+        </div>
+
+    </div>
+
+    <script>
+        const extras = document.querySelectorAll(".extra");
+        const orderButton = document.getElementById("orderButton");
+
+        extras.forEach(function(extra) {
+            extra.addEventListener("change", function() {
+
+                let total = 14000;
+
+                extras.forEach(function(item) {
+                    if (item.checked) {
+                        total += Number(item.value);
+                    }
+                });
+
+                orderButton.textContent =
+                    total.toLocaleString("ko-KR") + "원 주문하기";
+
+            });
+        });
+    </script>
+
+</body>
+</html>

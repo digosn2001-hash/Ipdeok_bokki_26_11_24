@@ -1,268 +1,1784 @@
 
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>입떡볶이</title>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>입덕볶이</title>
 
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
-    <div class="wrapper">
 
-        <!-- 헤더 -->
-        <header class="header">
-            <a href="index.html" class="logo">
-                <img src="img/logo.png" alt="logo">
-            </a>
+<div class="wrapper">
 
-            <button class="menu-button" id="menuOpen"
-                aria-label="메뉴 열기"
-                aria-controls="sideMenu"
-                aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </header>
+    <!-- =========================
+         헤더
+    ========================== -->
 
-        <!-- 햄버거 메뉴 배경 -->
-        <div class="menu-overlay" id="menuOverlay"></div>
+    <header class="header">
 
-        <!-- 햄버거 슬라이드 메뉴 -->
-        <aside class="side-menu" id="sideMenu"
-            aria-hidden="true" inert>
+        <a href="index.html" class="logo">
+            <img src="img/logo.png" alt="logo">
+            <span class="brand-name">입덕볶이</span>
+        </a>
 
-            <div class="side-menu-header">
-                <h2>MENU</h2>
-                <button class="close-button" id="menuClose"
-                    aria-label="메뉴 닫기">×</button>
-            </div>
+        <button class="menu-button" id="menuOpen"
+            aria-label="메뉴 열기"
+            aria-controls="sideMenu"
+            aria-expanded="false">
 
-            <nav class="side-menu-nav">
-                <ul>
-                    <li>
-                        <a href="sub/lists/img/lists.html">
-                            리스트페이지 <span>›</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="sub/detail/img/detail.html">
-                            상세페이지 <span>›</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="sub/payment/img/payment.html">
-                            결제페이지 <span>›</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="sub/payment_Finish/img/payment_Finish.html">
-                            결제 <span>›</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </aside>
+            <span></span>
+            <span></span>
+            <span></span>
 
-        <!-- HERO 메인 배너 -->
-        <section class="hero"></section>
+        </button>
 
-        <!-- SECTION 1 : 주문 버튼 -->
-        <section class="section_1">
+    </header>
 
-            <a href="sub/lists/img/lists.html"
-                class="order-button delivery">
-                배달 주문하기
-            </a>
 
-            <div class="order-row">
-                <button class="order-button">
-                    전화 주문하기
-                </button>
+    <!-- 햄버거 메뉴 배경 -->
 
-                <button class="order-button">
-                    쿠폰 사용
-                </button>
-            </div>
+    <div class="menu-overlay" id="menuOverlay"></div>
 
-        </section>
 
-        <!-- SECTION 2 : 추천 메뉴 -->
-        <section class="section_2">
+    <!-- =========================
+         햄버거 메뉴
+    ========================== -->
 
-            <h2 class="section-title">추천 메뉴</h2>
+    <aside class="side-menu" id="sideMenu"
+        aria-hidden="true" inert>
 
-            <div class="tab-list">
-                <button class="tab active">#해시태그</button>
-                <button class="tab">#해시태그</button>
-                <button class="tab">#해시태그</button>
-            </div>
+        <div class="side-menu-header">
 
-            <div class="recommend-slider">
+            <h2>MENU</h2>
 
-                <!-- 왼쪽 : 배경 박스만 -->
-                <article class="recommend-card side-card left-card">
-                </article>
+            <button class="close-button" id="menuClose"
+                aria-label="메뉴 닫기">×</button>
 
-                <!-- 가운데 : 글자, 버튼, 이미지 -->
-                <article class="recommend-card main-card">
+        </div>
 
-                    <p class="best">BEST 1</p>
 
-                    <h3>떡볶이 타이틀 작성</h3>
+        <!-- 비회원 화면 -->
 
-                    <a href="sub/detail/img/detail.html"
-                        class="recommend-order">
-                        주문하기
-                    </a>
+        <div class="guest-info" id="guestInfo">
 
-                    <div class="recommend-image"></div>
+            <h3>반가워요!</h3>
 
-                </article>
-
-                <!-- 오른쪽 : 배경 박스만 -->
-                <article class="recommend-card side-card right-card">
-                </article>
-
-            </div>
-
-        </section>
-
-        <!-- SECTION 3 : 메뉴 -->
-        <section class="section_3">
-
-            <h2 class="section-title">메뉴</h2>
-
-            <div class="tab-list">
-                <button class="tab active">탭메뉴1</button>
-                <button class="tab">탭메뉴2</button>
-                <button class="tab">탭메뉴3</button>
-            </div>
-
-            <div class="menu-grid">
-
-                <a href="sub/detail/img/detail.html"
-                    class="menu-card">
-                    <div class="menu-image menu-img-1"></div>
-                    <h3>떡볶이 타이틀 작성</h3>
-                </a>
-
-                <a href="sub/detail/img/detail.html"
-                    class="menu-card">
-                    <div class="menu-image menu-img-2"></div>
-                    <h3>떡볶이 타이틀 작성</h3>
-                </a>
-
-                <a href="sub/detail/img/detail.html"
-                    class="menu-card">
-                    <div class="menu-image menu-img-3"></div>
-                    <h3>떡볶이 타이틀 작성</h3>
-                </a>
-
-                <a href="sub/detail/img/detail.html"
-                    class="menu-card">
-                    <div class="menu-image menu-img-4"></div>
-                    <h3>떡볶이 타이틀 작성</h3>
-                </a>
-
-            </div>
-
-        </section>
-
-        <!-- SECTION 4 : 이벤트 -->
-        <section class="section_4">
-
-            <h2 class="section-title">이벤트</h2>
-
-            <p class="event-description">
-                매달 추가되는 입떡볶이의 이벤트를 만나보세요!
+            <p>
+                로그인하고 입덕볶이의
+                다양한 혜택을 받아보세요.
             </p>
 
-            <div class="event-tabs">
-                <button class="event-tab active">진행 중</button>
-                <button class="event-tab">종료</button>
-                <button class="event-tab">당첨자</button>
-            </div>
+            <a href="sub/payment_Finish/img/payment_Finish.html"
+                class="guest-login-button">
 
-            <div class="event-list">
+                로그인
 
-                <article class="event-card">
+            </a>
 
-                    <div class="event-image"></div>
+            <a href="sub/payment_Finish/img/payment_Finish.html#register"
+                class="guest-register-button">
 
-                    <div class="event-content">
+                회원가입
 
-                        <p class="event-subtitle">
-                            [할인중 이벤트]
-                        </p>
+            </a>
 
-                        <h3 class="event-title">
-                            매달 추가되는 입떡볶이의 이벤트 내역입니다.
-                            자세한 내용은 이벤트에서 확인하세요.
-                        </h3>
+        </div>
 
-                        <p class="event-date">
-                            2026.11.23-2026.12.31
-                        </p>
 
-                    </div>
+        <!-- 회원 화면 -->
 
-                </article>
+        <div class="member-info" id="memberInfo" hidden>
+
+            <div class="member-name-box">
+
+                <strong id="memberName">회원님</strong>
+
+                <span class="membership">멤버십</span>
 
             </div>
 
-        </section>
+            <p class="member-welcome">반갑습니다!</p>
+
+
+            <!-- 회원 혜택 -->
+
+            <div class="member-benefits">
+
+                <button type="button"
+                    class="member-benefit"
+                    onclick="closeMenu(); openCoupon();">
+
+                    <p>보유 쿠폰</p>
+
+                    <strong id="memberCouponCount">0장</strong>
+
+                </button>
+
+                <button type="button"
+                    class="member-benefit"
+                    onclick="showOrders()">
+
+                    <p>주문 내역</p>
+
+                    <strong id="memberOrderCount">0건</strong>
+
+                </button>
+
+            </div>
+
+
+            <!-- 배달 현황 -->
+
+            <button type="button"
+                class="member-delivery"
+                onclick="closeMenu(); openDelivery();">
+
+                배달현황 <span>›</span>
+
+            </button>
+
+
+            <!-- 로그아웃 -->
+
+            <button type="button"
+                class="member-logout"
+                onclick="memberLogout()">
+
+                로그아웃
+
+            </button>
+
+        </div>
+
+
+        <!-- 공통 메뉴 -->
+
+        <nav class="side-menu-nav">
+
+            <ul>
+
+                <li>
+                    <a href="sub/lists/img/lists.html">
+                        떡볶이메뉴 <span>›</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="sub/detail/img/detail.html">
+                        소개 <span>›</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="sub/payment/img/payment.html">
+                        커뮤니티 <span>›</span>
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- =========================
+         메인 배너
+    ========================== -->
+
+    <section class="hero"></section>
+
+
+    <!-- =========================
+         SECTION 1 : 주문 버튼
+    ========================== -->
+
+    <section class="section_1">
+
+        <button class="order-button delivery"
+            id="deliveryOpen">
+
+            배달 현황
+
+        </button>
+
+        <div class="order-row">
+
+            <button type="button"
+                class="order-button"
+                onclick="document.getElementById('phonePopup').classList.add('active')">
+
+                전화 주문하기
+
+            </button>
+
+            <button type="button"
+                class="order-button"
+                onclick="openCoupon()">
+
+                쿠폰 변경
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SECTION 2 : 추천 메뉴
+    ========================== -->
+
+    <section class="section_2">
+
+        <h2 class="section-title">추천 메뉴</h2>
+
+        <div class="tab-list">
+
+            <button class="tab active">
+                #추천하는
+            </button>
+
+        </div>
+
+
+        <div class="recommend-slider">
+
+            <!-- 왼쪽 화살표 -->
+
+            <article class="recommend-card side-card left-card">
+
+                <button type="button"
+                    class="recommend-prev"
+                    onclick="changeRecommend(-1)"
+                    aria-label="이전 추천 메뉴">
+
+                    〈
+
+                </button>
+
+            </article>
+
+
+            <!-- 가운데 추천 메뉴 -->
+
+            <article class="recommend-card main-card">
+
+                <p class="best" id="recommendBest">
+                    BEST 1
+                </p>
+
+                <h3 id="recommendTitle">
+                    로제 떡볶이
+                </h3>
+
+                <a href="sub/lists/img/lists.html"
+                    class="recommend-order">
+
+                    주문하기
+
+                </a>
+
+                <div class="recommend-image"
+                    id="recommendPhoto">
+                </div>
+
+            </article>
+
+
+            <!-- 오른쪽 화살표 -->
+
+            <article class="recommend-card side-card right-card">
+
+                <button type="button"
+                    class="recommend-next"
+                    onclick="changeRecommend(1)"
+                    aria-label="다음 추천 메뉴">
+
+                    〉
+
+                </button>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SECTION 3 : 메뉴
+    ========================== -->
+
+    <section class="section_3">
+
+        <h2 class="section-title">메뉴</h2>
+
+        <div class="tab-list">
+
+            <button class="tab active">탭메뉴1</button>
+
+            <button class="tab">탭메뉴2</button>
+
+            <button class="tab">탭메뉴3</button>
+
+        </div>
+
+        <div class="menu-grid">
+
+            <!-- 달짝지근 떡볶이 -->
+
+            <a href="#" class="menu-card"
+                onclick="openFoodDetail(0); return false;">
+
+                <div class="menu-image menu-img-1"></div>
+
+                <h3>달짝지근 떡볶이</h3>
+
+            </a>
+
+
+            <!-- 로제 떡볶이 -->
+
+            <a href="#" class="menu-card"
+                onclick="openFoodDetail(1); return false;">
+
+                <div class="menu-image menu-img-2"></div>
+
+                <h3>로제 떡볶이</h3>
+
+            </a>
+
+
+            <!-- 카레 누들 떡볶이 -->
+
+            <a href="#" class="menu-card"
+                onclick="openFoodDetail(2); return false;">
+
+                <div class="menu-image menu-img-3"></div>
+
+                <h3>카레 누들 떡볶이</h3>
+
+            </a>
+
+
+            <!-- 곱창 떡볶이 -->
+
+            <a href="#" class="menu-card"
+                onclick="openFoodDetail(3); return false;">
+
+                <div class="menu-image menu-img-4"></div>
+
+                <h3>곱창 떡볶이</h3>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SECTION 4 : 이벤트
+    ========================== -->
+
+    <section class="section_4">
+
+        <h2 class="section-title">이벤트</h2>
+
+        <p class="event-description">
+            매달 추가되는 입덕볶이의 이벤트를 만나보세요!
+        </p>
+
+
+        <!-- 이벤트 탭 -->
+
+        <div class="event-tabs">
+
+            <button class="event-tab active"
+                onclick="changeEventTab(this, 'active')">
+
+                진행 중
+
+            </button>
+
+            <button class="event-tab"
+                onclick="changeEventTab(this, 'end')">
+
+                종료
+
+            </button>
+
+            <button class="event-tab"
+                onclick="changeEventTab(this, 'winner')">
+
+                당첨자
+
+            </button>
+
+        </div>
+
+
+        <!-- 이벤트 목록 -->
+
+        <div class="event-list" id="activeEvents">
+
+            <!-- 신규 고객 -->
+
+            <article class="event-card">
+
+                <div class="event-image event-img-1"></div>
+
+                <div class="event-content">
+
+                    <p class="event-subtitle">
+                        [신규 고객 할인]
+                    </p>
+
+                    <h3 class="event-title">
+                        입덕볶이 첫 주문 3,000원 할인!
+                    </h3>
+
+                    <p class="event-date">
+                        상시 진행
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- 포장 할인 -->
+
+            <article class="event-card">
+
+                <div class="event-image event-img-2"></div>
+
+                <div class="event-content">
+
+                    <p class="event-subtitle">
+                        [포장 할인]
+                    </p>
+
+                    <h3 class="event-title">
+                        방문 포장 주문 시 2,000원 할인!
+                    </h3>
+
+                    <p class="event-date">
+                        상시 진행
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- 감사 할인 -->
+
+            <article class="event-card">
+
+                <div class="event-image event-img-3"></div>
+
+                <div class="event-content">
+
+                    <p class="event-subtitle">
+                        [고객 감사 할인]
+                    </p>
+
+                    <h3 class="event-title">
+                        고객님의 사랑에 보답하는 2,000원 할인!
+                    </h3>
+
+                    <p class="event-date">
+                        상시 진행
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- 재주문 할인 -->
+
+            <article class="event-card">
+
+                <div class="event-image event-img-4"></div>
+
+                <div class="event-content">
+
+                    <p class="event-subtitle">
+                        [재주문 할인]
+                    </p>
+
+                    <h3 class="event-title">
+                        다시 찾아주신 고객님께 1,000원 할인!
+                    </h3>
+
+                    <p class="event-date">
+                        상시 진행
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <!-- 종료 및 당첨자 안내 -->
+
+        <p id="eventEmpty"
+            style="display:none; text-align:center;
+            padding:80px 20px; color:#999999;">
+        </p>
+
+    </section>
+
+</div>
+
+
+<!-- =========================
+     배달 현황 팝업
+========================== -->
+
+<div class="delivery-popup" id="deliveryPopup">
+
+    <div class="delivery-popup-box">
+
+        <div class="delivery-popup-header">
+
+            <h2>배달 현황</h2>
+
+            <button id="deliveryClose"
+                aria-label="팝업 닫기">×</button>
+
+        </div>
+
+
+        <!-- 시연용 배달 현황 -->
+
+        <div class="delivery-time">
+
+            <p>배달 현황 미리보기 (프로토타입)</p>
+
+            <p>배달 예상 도착 시간</p>
+
+            <h2>20~30분</h2>
+
+            <div class="delivery-icon">🍲</div>
+
+            <h3>음식 조리 중</h3>
+
+            <p>맛있는 떡볶이를 준비하고 있어요!</p>
+
+        </div>
+
+
+        <!-- 배달 진행 상황 -->
+
+        <div class="delivery-status">
+
+            <div class="delivery-step completed">
+                <span>✓</span>
+                <p>주문 접수 대기 중</p>
+            </div>
+
+            <div class="delivery-step completed">
+                <span>✓</span>
+                <p>주문 접수 완료</p>
+            </div>
+
+            <div class="delivery-step active">
+                <span>3</span>
+                <p>음식 조리 중</p>
+            </div>
+
+            <div class="delivery-step">
+                <span>4</span>
+                <p>라이더 배달 중</p>
+            </div>
+
+            <div class="delivery-step">
+                <span>5</span>
+                <p>배달 완료</p>
+            </div>
+
+        </div>
+
+
+        <div class="delivery-order-info">
+
+            <h3>예시 주문 정보</h3>
+
+            <p>입덕볶이 1개</p>
+
+            <p>결제 금액 : 12,000원</p>
+
+        </div>
+
+        <button class="delivery-confirm"
+            id="deliveryConfirm">
+
+            닫기
+
+        </button>
 
     </div>
 
-    <!-- JAVASCRIPT : 햄버거 메뉴 -->
-    <script>
-        const menuOpen = document.getElementById("menuOpen");
-        const menuClose = document.getElementById("menuClose");
-        const sideMenu = document.getElementById("sideMenu");
-        const menuOverlay = document.getElementById("menuOverlay");
+</div>
 
-        function openMenu() {
-            sideMenu.inert = false;
-            sideMenu.classList.add("active");
-            menuOverlay.classList.add("active");
-            document.body.classList.add("menu-open");
 
-            sideMenu.setAttribute("aria-hidden", "false");
-            menuOpen.setAttribute("aria-expanded", "true");
+<!-- =========================
+     전화 주문 팝업
+========================== -->
 
-            menuClose.focus();
+<div class="delivery-popup" id="phonePopup">
+
+    <div class="delivery-popup-box">
+
+        <div class="delivery-popup-header">
+
+            <h2>전화 주문하기</h2>
+
+            <button type="button"
+                onclick="document.getElementById('phonePopup').classList.remove('active')">
+
+                ×
+
+            </button>
+
+        </div>
+
+        <div class="delivery-time">
+
+            <div class="delivery-icon">☎</div>
+
+            <p>가게명</p>
+
+            <h3>입덕볶이</h3>
+
+            <p>전화번호</p>
+
+            <h2>02-0000-0000</h2>
+
+            <p>전화로 간편하게 주문해 보세요!</p>
+
+        </div>
+
+        <a href="tel:0200000000"
+            class="phone-call-button">
+
+            전화하기
+
+        </a>
+
+        <button type="button"
+            class="phone-cancel-button"
+            onclick="document.getElementById('phonePopup').classList.remove('active')">
+
+            닫기
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     쿠폰 변경 화면
+========================== -->
+
+<div id="couponPage" class="coupon-page" hidden>
+
+    <div class="coupon-top">
+
+        <button type="button"
+            onclick="closeCoupon()">
+
+            〈
+
+        </button>
+
+        <h2>쿠폰 변경</h2>
+
+    </div>
+
+
+    <section class="coupon-section">
+
+        <h3>
+
+            보유 쿠폰
+
+            <span id="couponPageCount">0장</span>
+
+        </h3>
+
+
+        <!-- 회원별 쿠폰 목록 -->
+
+        <div id="memberCouponList"></div>
+
+
+        <p class="coupon-notice">
+            쿠폰은 한 번에 한 장만 적용할 수 있습니다.
+        </p>
+
+        <button type="button"
+            class="coupon-home"
+            onclick="closeCoupon()">
+
+            홈으로 돌아가기
+
+        </button>
+
+    </section>
+
+</div>
+
+
+<!-- =========================
+     메뉴 상세정보 팝업
+========================== -->
+
+<dialog id="foodDetailPopup">
+
+    <div class="food-detail-header">
+
+        <h2 id="foodDetailTitle">
+            메뉴 이름
+        </h2>
+
+        <button type="button"
+            onclick="closeFoodDetail()">
+
+            ×
+
+        </button>
+
+    </div>
+
+
+    <div class="food-detail-image"
+        id="foodDetailImage">
+    </div>
+
+
+    <!-- 매운맛 선택 -->
+
+    <div class="food-spicy-section">
+
+        <h3>매운맛 선택</h3>
+
+        <label class="spicy-option">
+
+            <input type="radio"
+                name="spicy" value="매운맛">
+
+            <div>
+                <strong>매운맛</strong>
+                <p>불닭볶음면 정도</p>
+            </div>
+
+            <span>🌶️🌶️🌶️</span>
+
+        </label>
+
+
+        <label class="spicy-option">
+
+            <input type="radio"
+                name="spicy" value="덜 매운맛">
+
+            <div>
+                <strong>덜 매운맛</strong>
+                <p>신라면 정도</p>
+            </div>
+
+            <span>🌶️🌶️</span>
+
+        </label>
+
+
+        <label class="spicy-option">
+
+            <input type="radio"
+                name="spicy" value="오리지널" checked>
+
+            <div>
+                <strong>오리지널</strong>
+                <p>살짝 매콤해요</p>
+            </div>
+
+            <span>🌶️</span>
+
+        </label>
+
+        <p class="spicy-notice">
+            매운맛의 정도는 개인에 따라 다르게 느껴질 수 있습니다.
+        </p>
+
+    </div>
+
+
+    <!-- 메뉴 설명 -->
+
+    <div class="food-description">
+
+        <h3>메뉴 설명</h3>
+
+        <p id="foodDetailDescription"></p>
+
+    </div>
+
+    <button type="button"
+        class="food-detail-confirm"
+        onclick="closeFoodDetail()">
+
+        확인
+
+    </button>
+
+</dialog>
+
+
+<!-- =========================
+     주문 내역 팝업
+========================== -->
+
+<dialog id="orderHistoryPopup"
+    class="community-dialog">
+
+    <div class="popup-heading">
+
+        <h2>주문 내역</h2>
+
+        <button type="button"
+            onclick="document.getElementById('orderHistoryPopup').close()">
+
+            ×
+
+        </button>
+
+    </div>
+
+    <div id="orderHistoryList"></div>
+
+    <button class="delivery-confirm"
+        onclick="document.getElementById('orderHistoryPopup').close()">
+
+        확인
+
+    </button>
+
+</dialog>
+
+
+<script>
+
+// =========================
+// 01. 햄버거 메뉴
+// =========================
+
+const menuOpen = document.getElementById("menuOpen");
+
+const menuClose = document.getElementById("menuClose");
+
+const sideMenu = document.getElementById("sideMenu");
+
+const menuOverlay = document.getElementById("menuOverlay");
+
+
+function openMenu() {
+
+    refreshMemberUI();
+
+    sideMenu.inert = false;
+
+    sideMenu.classList.add("active");
+
+    menuOverlay.classList.add("active");
+
+    document.body.classList.add("menu-open");
+
+    sideMenu.setAttribute("aria-hidden", "false");
+
+    menuOpen.setAttribute("aria-expanded", "true");
+
+    menuClose.focus();
+
+}
+
+
+function closeMenu() {
+
+    sideMenu.classList.remove("active");
+
+    menuOverlay.classList.remove("active");
+
+    document.body.classList.remove("menu-open");
+
+    menuOpen.setAttribute("aria-expanded", "false");
+
+    menuOpen.focus();
+
+    sideMenu.inert = true;
+
+    sideMenu.setAttribute("aria-hidden", "true");
+
+}
+
+
+menuOpen.addEventListener("click", openMenu);
+
+menuClose.addEventListener("click", closeMenu);
+
+menuOverlay.addEventListener("click", closeMenu);
+
+
+window.addEventListener("pagehide", closeMenu);
+
+
+
+// =========================
+// 02. 회원 정보 확인
+// =========================
+
+function getUsers() {
+
+    try {
+
+        const users = JSON.parse(
+            localStorage.getItem("users") || "[]"
+        );
+
+        return Array.isArray(users) ? users : [];
+
+    } catch (error) {
+
+        return [];
+
+    }
+
+}
+
+
+function readActiveMember() {
+
+    const users = getUsers();
+
+    const userNo = localStorage.getItem("currentUser");
+
+    return users.find(user => user.userNo === userNo)
+        || null;
+
+}
+
+
+
+// =========================
+// 03. 회원 및 비회원 UI
+// =========================
+
+function refreshMemberUI() {
+
+    const user = readActiveMember();
+
+    const guestInfo =
+        document.getElementById("guestInfo");
+
+    const memberInfo =
+        document.getElementById("memberInfo");
+
+    if (user) {
+
+        guestInfo.hidden = true;
+
+        memberInfo.hidden = false;
+
+        document.getElementById("memberName")
+            .textContent = user.name + " 회원님";
+
+        sessionStorage.setItem(
+            "demoMemberName", user.name
+        );
+
+
+        // 사용 가능한 쿠폰 확인
+
+        const availableCoupons =
+            (user.coupons || []).filter(coupon =>
+
+                !coupon.used &&
+                new Date(coupon.expiresAt) >= new Date()
+
+            );
+
+
+        document.getElementById("memberCouponCount")
+            .textContent = availableCoupons.length + "장";
+
+
+        document.getElementById("memberOrderCount")
+            .textContent = (user.orders || []).length + "건";
+
+
+    } else {
+
+        guestInfo.hidden = false;
+
+        memberInfo.hidden = true;
+
+        sessionStorage.removeItem("demoMemberName");
+
+    }
+
+}
+
+
+
+// =========================
+// 04. 로그아웃
+// =========================
+
+function memberLogout() {
+
+    if (!confirm("로그아웃 하시겠습니까?")) {
+
+        return;
+
+    }
+
+    localStorage.removeItem("currentUser");
+
+    localStorage.removeItem("couponDiscount");
+
+    sessionStorage.removeItem("demoMemberName");
+
+    closeMenu();
+
+    closeCoupon();
+
+    refreshMemberUI();
+
+    alert("로그아웃되었습니다.");
+
+}
+
+
+
+// =========================
+// 05. 회원 전용 기능
+// =========================
+
+function memberLoginRequired() {
+
+    if (readActiveMember()) {
+
+        return true;
+
+    }
+
+    const move = confirm(
+
+        "로그인이 필요한 서비스입니다.\n" +
+
+        "로그인 화면으로 이동하시겠습니까?"
+
+    );
+
+    if (move) {
+
+        location.href =
+            "sub/payment_Finish/img/payment_Finish.html";
+
+    }
+
+    return false;
+
+}
+
+
+
+// =========================
+// 06. 배달 현황
+// =========================
+
+const deliveryOpen =
+    document.getElementById("deliveryOpen");
+
+const deliveryClose =
+    document.getElementById("deliveryClose");
+
+const deliveryPopup =
+    document.getElementById("deliveryPopup");
+
+const deliveryConfirm =
+    document.getElementById("deliveryConfirm");
+
+
+function openDelivery() {
+
+    if (!memberLoginRequired()) return;
+
+    deliveryPopup.classList.add("active");
+
+    document.body.style.overflow = "hidden";
+
+}
+
+
+function closeDelivery() {
+
+    deliveryPopup.classList.remove("active");
+
+    document.body.style.overflow = "";
+
+}
+
+
+deliveryOpen.addEventListener("click", openDelivery);
+
+deliveryClose.addEventListener("click", closeDelivery);
+
+deliveryConfirm.addEventListener("click", closeDelivery);
+
+
+deliveryPopup.addEventListener("click", function(event) {
+
+    if (event.target === deliveryPopup) {
+
+        closeDelivery();
+
+    }
+
+});
+
+
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+
+        if (sideMenu.classList.contains("active")) {
+
+            closeMenu();
+
         }
 
-        function closeMenu() {
-            sideMenu.classList.remove("active");
-            menuOverlay.classList.remove("active");
-            document.body.classList.remove("menu-open");
+        if (deliveryPopup.classList.contains("active")) {
 
-            menuOpen.setAttribute("aria-expanded", "false");
-            menuOpen.focus();
+            closeDelivery();
 
-            sideMenu.inert = true;
-            sideMenu.setAttribute("aria-hidden", "true");
         }
 
-        menuOpen.addEventListener("click", openMenu);
-        menuClose.addEventListener("click", closeMenu);
-        menuOverlay.addEventListener("click", closeMenu);
+        document.getElementById("phonePopup")
+            .classList.remove("active");
 
-        document.addEventListener("keydown", function(event) {
-            if (event.key === "Escape" &&
-                sideMenu.classList.contains("active")) {
-                closeMenu();
-            }
+    }
+
+});
+
+
+
+// =========================
+// 07. 회원별 주문 내역
+// =========================
+
+function showOrders() {
+
+    if (!memberLoginRequired()) return;
+
+    closeMenu();
+
+    const user = readActiveMember();
+
+    const orders = user.orders || [];
+
+    const list = document.getElementById("orderHistoryList");
+
+    list.replaceChildren();
+
+
+    if (orders.length === 0) {
+
+        const message = document.createElement("p");
+
+        message.textContent = "아직 주문 내역이 없습니다.";
+
+        list.appendChild(message);
+
+    } else {
+
+        orders.forEach(function(order) {
+
+            const item = document.createElement("p");
+
+            item.textContent =
+                (order.menu || "주문 상품") +
+                " / " +
+                (order.price || 0).toLocaleString() + "원";
+
+            list.appendChild(item);
+
         });
 
-        window.addEventListener("pagehide", closeMenu);
-    </script>
+    }
+
+    document.getElementById("orderHistoryPopup").showModal();
+
+}
+
+
+
+// =========================
+// 08. 쿠폰 변경
+// =========================
+
+function openCoupon() {
+
+    if (!memberLoginRequired()) return;
+
+    closeMenu();
+
+    renderMemberCoupons();
+
+    document.querySelector(".wrapper")
+        .style.display = "none";
+
+    document.getElementById("couponPage").hidden = false;
+
+    window.scrollTo(0, 0);
+
+}
+
+
+function closeCoupon() {
+
+    document.getElementById("couponPage").hidden = true;
+
+    document.querySelector(".wrapper")
+        .style.display = "";
+
+    window.scrollTo(0, 0);
+
+}
+
+
+
+// 쿠폰 날짜 표시
+
+function formatCouponDate(value) {
+
+    const date = new Date(value);
+
+    const year =
+        String(date.getFullYear()).slice(-2);
+
+    const month =
+        String(date.getMonth() + 1).padStart(2, "0");
+
+    const day =
+        String(date.getDate()).padStart(2, "0");
+
+    return year + "/" + month + "/" + day;
+
+}
+
+
+
+// 회원별 쿠폰 표시
+
+function renderMemberCoupons() {
+
+    const user = readActiveMember();
+
+    if (!user) return;
+
+    const coupons = user.coupons || [];
+
+    const list =
+        document.getElementById("memberCouponList");
+
+    list.replaceChildren();
+
+
+    const availableCoupons = coupons.filter(coupon =>
+
+        !coupon.used &&
+        new Date(coupon.expiresAt) >= new Date()
+
+    );
+
+
+    document.getElementById("couponPageCount")
+        .textContent = availableCoupons.length + "장";
+
+
+    if (coupons.length === 0) {
+
+        const message = document.createElement("p");
+
+        message.textContent = "보유한 쿠폰이 없습니다.";
+
+        list.appendChild(message);
+
+    }
+
+
+    coupons.forEach(function(coupon, index) {
+
+        const expired =
+            new Date(coupon.expiresAt) < new Date();
+
+
+        const selected =
+            user.selectedCouponIndex === index;
+
+
+        const card = document.createElement("article");
+
+        card.className = "coupon-card";
+
+
+        const title = document.createElement("h3");
+
+        title.textContent = coupon.name;
+
+
+        const discount = document.createElement("h2");
+
+        discount.textContent =
+            Number(coupon.discount).toLocaleString() +
+            "원 할인";
+
+
+        const period = document.createElement("p");
+
+        period.className = "coupon-period";
+
+        period.textContent =
+
+            "사용 기한: " +
+
+            formatCouponDate(coupon.issuedAt) +
+
+            " ~ " +
+
+            formatCouponDate(coupon.expiresAt) +
+
+            "까지";
+
+
+        const button = document.createElement("button");
+
+        button.type = "button";
+
+        button.className = "coupon-button";
+
+
+        if (coupon.used) {
+
+            button.textContent = "사용 완료";
+
+            button.disabled = true;
+
+        } else if (expired) {
+
+            button.textContent = "기간 만료";
+
+            button.disabled = true;
+
+            button.classList.add("expired");
+
+        } else if (selected) {
+
+            button.textContent = "적용 완료";
+
+            button.classList.add("applied");
+
+        } else {
+
+            button.textContent = "적용";
+
+        }
+
+
+        button.addEventListener("click", function() {
+
+            applyMemberCoupon(index);
+
+        });
+
+
+        card.append(title, discount, period, button);
+
+        list.appendChild(card);
+
+    });
+
+
+    // 선택된 쿠폰이 만료된 경우 할인 해제
+
+    const selectedCoupon =
+        coupons[user.selectedCouponIndex];
+
+    if (
+        selectedCoupon &&
+        !selectedCoupon.used &&
+        new Date(selectedCoupon.expiresAt) >= new Date()
+    ) {
+
+        localStorage.setItem(
+            "couponDiscount",
+            selectedCoupon.discount
+        );
+
+    } else {
+
+        localStorage.removeItem("couponDiscount");
+
+    }
+
+}
+
+
+
+// 쿠폰 적용
+
+function applyMemberCoupon(index) {
+
+    const user = readActiveMember();
+
+    if (!user) return;
+
+    const coupon = user.coupons[index];
+
+    if (
+        !coupon ||
+        coupon.used ||
+        new Date(coupon.expiresAt) < new Date()
+    ) {
+
+        alert("사용할 수 없는 쿠폰입니다.");
+
+        renderMemberCoupons();
+
+        refreshMemberUI();
+
+        return;
+
+    }
+
+
+    const users = getUsers();
+
+    const memberIndex = users.findIndex(
+        item => item.userNo === user.userNo
+    );
+
+    if (memberIndex === -1) return;
+
+
+    // 선택한 쿠폰을 회원별로 저장
+
+    users[memberIndex].selectedCouponIndex = index;
+
+
+    localStorage.setItem(
+        "users",
+        JSON.stringify(users)
+    );
+
+    localStorage.setItem(
+        "couponDiscount",
+        coupon.discount
+    );
+
+
+    renderMemberCoupons();
+
+    refreshMemberUI();
+
+}
+
+
+
+// =========================
+// 09. 추천 메뉴 슬라이드
+// =========================
+
+const recommendMenus = [
+
+    {
+        name: "로제 떡볶이",
+        image: "img/menu-2.jpg"
+    },
+
+    {
+        name: "카레 누들 떡볶이",
+        image: "img/menu-3.jpg"
+    },
+
+    {
+        name: "곱창 떡볶이",
+        image: "img/menu-4.jpg"
+    },
+
+    {
+        name: "달짝지근 떡볶이",
+        image: "img/menu-1.jpg"
+    }
+
+];
+
+
+let recommendIndex = 0;
+
+
+function changeRecommend(direction) {
+
+    recommendIndex =
+
+        (recommendIndex +
+            direction +
+            recommendMenus.length)
+
+        % recommendMenus.length;
+
+    showRecommend();
+
+}
+
+
+function showRecommend() {
+
+    const menu = recommendMenus[recommendIndex];
+
+    document.getElementById("recommendBest")
+        .textContent = "BEST " + (recommendIndex + 1);
+
+    document.getElementById("recommendTitle")
+        .textContent = menu.name;
+
+    document.getElementById("recommendPhoto")
+        .style.backgroundImage = 'url("' + menu.image + '")';
+
+
+    const card = document.querySelector(
+        ".recommend-slider .main-card"
+    );
+
+    card.classList.remove("changing");
+
+    void card.offsetWidth;
+
+    card.classList.add("changing");
+
+}
+
+
+
+// =========================
+// 10. 메뉴 상세정보
+// =========================
+
+const foodDetails = [
+
+    {
+        name: "달짝지근 떡볶이",
+
+        image: "img/menu-1.jpg",
+
+        description:
+            "달콤한 소스와 쫄깃한 떡이 어우러진 떡볶이로, 부담 없이 즐기기 좋은 달콤하고 매콤한 맛이 특징입니다."
+    },
+
+    {
+        name: "로제 떡볶이",
+
+        image: "img/menu-2.jpg",
+
+        description:
+            "부드러운 크림과 매콤한 떡볶이 소스가 어우러져 고소하고 꾸덕한 맛을 즐길 수 있는 떡볶이입니다."
+    },
+
+    {
+        name: "카레 누들 떡볶이",
+
+        image: "img/menu-3.jpg",
+
+        description:
+            "향긋하고 진한 카레 소스에 길고 쫄깃한 누들떡이 어우러져 풍부한 감칠맛을 느낄 수 있는 떡볶이입니다."
+    },
+
+    {
+        name: "곱창 떡볶이",
+
+        image: "img/menu-4.jpg",
+
+        description:
+            "고소하고 쫄깃한 곱창과 매콤한 떡볶이 소스의 조화로 깊고 풍부한 맛을 즐길 수 있는 떡볶이입니다."
+    }
+
+];
+
+
+function openFoodDetail(index) {
+
+    const food = foodDetails[index];
+
+
+    document.getElementById("foodDetailTitle")
+        .textContent = food.name;
+
+
+    document.getElementById("foodDetailImage")
+        .style.backgroundImage = 'url("' + food.image + '")';
+
+
+    document.getElementById("foodDetailDescription")
+        .textContent = food.description;
+
+
+    document.querySelector(
+        'input[name="spicy"][value="오리지널"]'
+    ).checked = true;
+
+
+    document.getElementById("foodDetailPopup")
+        .showModal();
+
+}
+
+
+function closeFoodDetail() {
+
+    document.getElementById("foodDetailPopup")
+        .close();
+
+}
+
+
+
+// =========================
+// 11. 이벤트 탭 전환
+// =========================
+
+function changeEventTab(button, type) {
+
+    document.querySelectorAll(".event-tab")
+        .forEach(function(tab) {
+
+            tab.classList.remove("active");
+
+        });
+
+
+    button.classList.add("active");
+
+
+    const events =
+        document.getElementById("activeEvents");
+
+    const empty =
+        document.getElementById("eventEmpty");
+
+
+    if (type === "active") {
+
+        events.style.display = "flex";
+
+        empty.style.display = "none";
+
+    } else {
+
+        events.style.display = "none";
+
+        empty.style.display = "block";
+
+
+        if (type === "end") {
+
+            empty.textContent =
+                "종료된 이벤트가 없습니다.";
+
+        } else {
+
+            empty.textContent =
+                "발표된 당첨자가 없습니다.";
+
+        }
+
+    }
+
+}
+
+
+
+// =========================
+// 12. 페이지 초기 실행
+// =========================
+
+refreshMemberUI();
+
+showRecommend();
+
+
+window.addEventListener("pageshow", refreshMemberUI);
+
+
+window.addEventListener("storage", function() {
+
+    refreshMemberUI();
+
+    const couponPage =
+        document.getElementById("couponPage");
+
+    if (!readActiveMember()) {
+
+        closeCoupon();
+
+        closeDelivery();
+
+        localStorage.removeItem("couponDiscount");
+
+    } else if (!couponPage.hidden) {
+
+        renderMemberCoupons();
+
+    }
+
+});
+
+
+// 다른 페이지에서 배달현황 요청
+
+if (
+    new URLSearchParams(location.search)
+        .get("delivery") === "open"
+) {
+
+    history.replaceState(
+        null, "", location.pathname
+    );
+
+    openDelivery();
+
+}
+
+</script>
 
 </body>
+
 </html>

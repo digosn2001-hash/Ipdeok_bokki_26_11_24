@@ -1,75 +1,831 @@
 
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>결제완료페이지</title>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../css/payment_Finish.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>입덕볶이 | 로그인</title>
+
+    <link rel="stylesheet"
+        href="../../../css/style.css">
+
 </head>
 
 <body>
 
-    <div class="wrapper">
+<div class="wrapper">
 
-        <header class="sub-header">
-            <h1>결제 완료</h1>
-        </header>
+    <!-- 헤더 -->
 
-        <section class="finish-section">
+    <header class="header">
 
-            <div class="check-icon">✓</div>
+        <a href="../../../index.html" class="logo">
 
-            <h2>주문이 완료되었습니다!</h2>
+            <img src="../../../img/logo.png" alt="로고">
 
-            <p>입떡볶이를 이용해 주셔서 감사합니다.</p>
+            <span class="brand-name">입덕볶이</span>
 
-            <p class="demo-notice">결제 기능 구현용 예시 화면입니다.</p>
+        </a>
 
-        </section>
+        <a href="../../../index.html">홈으로</a>
 
-        <section class="order-summary">
+    </header>
 
-            <h3>주문 정보</h3>
 
-            <div class="summary-row">
-                <span>주문번호</span>
-                <strong>000001</strong>
-            </div>
+    <!-- 로그인 화면 -->
 
-            <div class="summary-row">
-                <span>주문 메뉴</span>
-                <strong>오리지널 떡볶이</strong>
-            </div>
+    <main id="loginPage">
 
-            <div class="summary-row">
-                <span>결제 금액</span>
-                <strong>17,000원</strong>
-            </div>
+        <section class="login-section_1">
 
-            <div class="summary-row">
-                <span>예상 배달시간</span>
-                <strong>30~40분</strong>
-            </div>
+            <img src="../../../img/logo.png"
+                class="login-logo" alt="로고">
+
+            <h1>로그인</h1>
+
+            <p>로그인하고 다양한 혜택을 만나보세요!</p>
 
         </section>
 
-        <div class="button-area">
 
-            <a href="../../../index.html" class="home-button">
-                메인페이지 돌아가기
-            </a>
+        <section class="login-section_2">
 
-            <a href="../../lists/img/lists.html" class="menu-button">
-              메뉴 더 보기
-            </a>
+            <form id="loginForm">
 
-        </div>
+                <label for="loginId">아이디</label>
+
+                <input type="text"
+                    id="loginId"
+                    placeholder="아이디를 입력해주세요."
+                    required>
+
+
+                <label for="loginPassword">비밀번호</label>
+
+                <div class="login-password-box">
+
+                    <input type="password"
+                        id="loginPassword"
+                        placeholder="비밀번호를 입력해주세요."
+                        required>
+
+                    <button type="button"
+                        onclick="togglePassword('loginPassword', this)">
+
+                        보기
+
+                    </button>
+
+                </div>
+
+
+                <label class="login-save">
+
+                    <input type="checkbox" id="saveId">
+
+                    아이디 저장
+
+                </label>
+
+
+                <button type="submit" class="login-button">
+
+                    로그인
+
+                </button>
+
+                <p id="loginMessage"></p>
+
+            </form>
+
+        </section>
+
+
+        <!-- 회원가입 및 계정 찾기 -->
+
+        <section class="login-section_3">
+
+            <button type="button"
+                onclick="alert('프로토타입에서는 지원하지 않습니다.')">
+
+                아이디 찾기
+
+            </button>
+
+            <span>|</span>
+
+            <button type="button"
+                onclick="alert('프로토타입에서는 지원하지 않습니다.')">
+
+                비밀번호 찾기
+
+            </button>
+
+            <span>|</span>
+
+            <button type="button"
+                onclick="showRegister()">
+
+                회원가입
+
+            </button>
+
+        </section>
+
+
+        <!-- 간편 로그인 -->
+
+        <section class="login-section_4">
+
+            <p>간편 로그인</p>
+
+            <button class="social-login kakao-login"
+                onclick="socialNotice()">
+
+                카카오 로그인
+
+            </button>
+
+            <button class="social-login naver-login"
+                onclick="socialNotice()">
+
+                네이버 로그인
+
+            </button>
+
+            <button class="social-login google-login"
+                onclick="socialNotice()">
+
+                Google 로그인
+
+            </button>
+
+            <button class="social-login apple-login"
+                onclick="socialNotice()">
+
+                Apple 로그인
+
+            </button>
+
+        </section>
+
+
+        <!-- 간편인증 -->
+
+        <section class="login-section_5">
+
+            <p>간편인증 로그인</p>
+
+            <button class="easy-auth-button"
+                onclick="document.getElementById('authPopup').showModal()">
+
+                간편인증
+
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <!-- 회원가입 화면 -->
+
+    <main id="registerPage" hidden>
+
+        <section class="login-section_1">
+
+            <img src="../../../img/logo.png"
+                class="login-logo" alt="로고">
+
+            <h1>회원가입</h1>
+
+            <p>입덕볶이의 새로운 회원이 되어보세요!</p>
+
+        </section>
+
+
+        <section class="register-section">
+
+            <form id="registerForm">
+
+
+                <!-- 이름 -->
+
+                <label for="registerName">이름 *</label>
+
+                <input type="text"
+                    id="registerName"
+                    placeholder="가상의 이름을 입력해주세요."
+                    required>
+
+
+                <!-- 아이디 -->
+
+                <label for="registerId">아이디 *</label>
+
+                <div class="register-id-row">
+
+                    <input type="text"
+                        id="registerId"
+                        placeholder="아이디를 입력해주세요."
+                        required>
+
+                    <button type="button"
+                        onclick="checkDuplicate()">
+
+                        중복 확인
+
+                    </button>
+
+                </div>
+
+                <p id="idCheckMessage"></p>
+
+
+                <!-- 비밀번호 -->
+
+                <label for="registerPassword">
+
+                    비밀번호 *
+
+                </label>
+
+                <div class="login-password-box">
+
+                    <input type="password"
+                        id="registerPassword"
+                        minlength="8"
+                        placeholder="8자리 이상 입력해주세요."
+                        required>
+
+                    <button type="button"
+                        onclick="togglePassword('registerPassword', this)">
+
+                        보기
+
+                    </button>
+
+                </div>
+
+
+                <!-- 비밀번호 확인 -->
+
+                <label for="registerPasswordCheck">
+
+                    비밀번호 확인 *
+
+                </label>
+
+                <input type="password"
+                    id="registerPasswordCheck"
+                    placeholder="비밀번호를 다시 입력해주세요."
+                    required>
+
+
+                <!-- 이용약관 -->
+
+                <div class="register-agreements">
+
+                    <label>
+
+                        <input type="checkbox"
+                            id="agreeAll">
+
+                        전체 동의
+
+                    </label>
+
+                    <hr>
+
+                    <label>
+
+                        <input type="checkbox"
+                            class="agreement" required>
+
+                        서비스 이용약관 동의 (필수)
+
+                    </label>
+
+                    <label>
+
+                        <input type="checkbox"
+                            class="agreement" required>
+
+                        개인정보 수집 및 이용 동의 (필수)
+
+                    </label>
+
+                    <label>
+
+                        <input type="checkbox"
+                            class="agreement">
+
+                        이벤트 및 혜택 알림 동의 (선택)
+
+                    </label>
+
+                </div>
+
+
+                <p class="register-notice">
+
+                    본 페이지는 프로토타입입니다.
+                    실제 개인정보 및 실제 비밀번호를
+                    입력하지 마세요.
+
+                </p>
+
+
+                <button type="submit" class="login-button">
+
+                    회원가입
+
+                </button>
+
+
+                <button type="button"
+                    class="register-back"
+                    onclick="showLogin()">
+
+                    이미 회원이신가요? 로그인
+
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- 간편인증 팝업 -->
+
+<dialog id="authPopup" class="community-dialog">
+
+    <div class="popup-heading">
+
+        <h2>간편인증</h2>
+
+        <button onclick="document.getElementById('authPopup').close()">
+
+            ×
+
+        </button>
 
     </div>
 
+    <button class="guest-choice" onclick="socialNotice()">
+
+        PASS 인증
+
+    </button>
+
+    <button class="guest-choice" onclick="socialNotice()">
+
+        카카오 인증서
+
+    </button>
+
+    <button class="guest-choice" onclick="socialNotice()">
+
+        네이버 인증서
+
+    </button>
+
+    <button class="guest-choice" onclick="socialNotice()">
+
+        토스 인증서
+
+    </button>
+
+</dialog>
+
+
+<script>
+
+// =========================
+// 회원 정보 관리
+// =========================
+
+function getUsers() {
+
+    return JSON.parse(
+        localStorage.getItem("users") || "[]"
+    );
+
+}
+
+
+// 비밀번호 해시 변환
+
+async function hashPassword(password) {
+
+    const data = new TextEncoder().encode(password);
+
+    const buffer = await crypto.subtle.digest("SHA-256", data);
+
+    return Array.from(new Uint8Array(buffer))
+        .map(byte => byte.toString(16).padStart(2, "0"))
+        .join("");
+
+}
+
+
+// 회원가입 화면
+
+function showRegister() {
+
+    document.getElementById("loginPage").hidden = true;
+
+    document.getElementById("registerPage").hidden = false;
+
+    window.scrollTo(0, 0);
+
+}
+
+
+// 로그인 화면
+
+function showLogin() {
+
+    document.getElementById("loginPage").hidden = false;
+
+    document.getElementById("registerPage").hidden = true;
+
+    window.scrollTo(0, 0);
+
+}
+
+
+// 비밀번호 보기
+
+function togglePassword(id, button) {
+
+    const input = document.getElementById(id);
+
+    if (input.type === "password") {
+
+        input.type = "text";
+
+        button.textContent = "숨기기";
+
+    } else {
+
+        input.type = "password";
+
+        button.textContent = "보기";
+
+    }
+
+}
+
+
+// 아이디 중복 확인
+
+function checkDuplicate() {
+
+    const id =
+        document.getElementById("registerId").value.trim();
+
+    const message =
+        document.getElementById("idCheckMessage");
+
+    const users = getUsers();
+
+    if (!id) {
+
+        message.textContent = "아이디를 입력해주세요.";
+
+        message.style.color = "red";
+
+        return;
+
+    }
+
+    const duplicate = users.some(user => user.id === id);
+
+    if (duplicate) {
+
+        message.textContent = "이미 사용 중인 아이디입니다.";
+
+        message.style.color = "red";
+
+    } else {
+
+        message.textContent = "사용 가능한 아이디입니다.";
+
+        message.style.color = "green";
+
+    }
+
+}
+
+
+document.getElementById("registerId")
+    .addEventListener("input", function() {
+
+        document.getElementById("idCheckMessage")
+            .textContent = "";
+
+    });
+
+
+// 이용약관 전체 동의
+
+document.getElementById("agreeAll")
+    .addEventListener("change", function() {
+
+        const checked = this.checked;
+
+        document.querySelectorAll(".agreement")
+            .forEach(item => item.checked = checked);
+
+    });
+
+
+document.querySelectorAll(".agreement")
+    .forEach(function(item) {
+
+        item.addEventListener("change", function() {
+
+            document.getElementById("agreeAll").checked =
+
+                Array.from(
+                    document.querySelectorAll(".agreement")
+                ).every(item => item.checked);
+
+        });
+
+    });
+
+
+// =========================
+// 회원가입 처리
+// =========================
+
+document.getElementById("registerForm")
+    .addEventListener("submit", async function(event) {
+
+        event.preventDefault();
+
+        const name =
+            document.getElementById("registerName").value.trim();
+
+        const id =
+            document.getElementById("registerId").value.trim();
+
+        const password =
+            document.getElementById("registerPassword").value;
+
+        const passwordCheck =
+            document.getElementById("registerPasswordCheck").value;
+
+        if (!name || !id || !password) {
+
+            alert("모든 정보를 입력해주세요.");
+
+            return;
+
+        }
+
+        if (password.length < 8) {
+
+            alert("비밀번호는 8자리 이상 입력해주세요.");
+
+            return;
+
+        }
+
+        if (password !== passwordCheck) {
+
+            alert("비밀번호가 일치하지 않습니다.");
+
+            return;
+
+        }
+
+        try {
+
+            const passwordHash = await hashPassword(password);
+
+            const users = getUsers();
+
+            if (users.some(user => user.id === id)) {
+
+                alert("이미 사용 중인 아이디입니다.");
+
+                return;
+
+            }
+
+            const issuedDate = new Date();
+
+            const expiryDate = new Date(issuedDate);
+
+            expiryDate.setDate(expiryDate.getDate() + 2);
+
+            expiryDate.setHours(23, 59, 59, 999);
+
+
+            // 가상 회원 정보
+
+            const newUser = {
+
+                userNo: crypto.randomUUID(),
+
+                name: name,
+
+                id: id,
+
+                passwordHash: passwordHash,
+
+                membership: "일반회원",
+
+                joinedAt: issuedDate.toISOString(),
+
+                coupons: [
+
+                    {
+                        name: "신규 고객 할인 쿠폰",
+                        discount: 3000,
+                        issuedAt: issuedDate.toISOString(),
+                        expiresAt: expiryDate.toISOString(),
+                        used: false
+                    },
+
+                    {
+                        name: "감사 할인 쿠폰",
+                        discount: 2000,
+                        issuedAt: issuedDate.toISOString(),
+                        expiresAt: expiryDate.toISOString(),
+                        used: false
+                    },
+
+                    {
+                        name: "재주문 할인 쿠폰",
+                        discount: 1000,
+                        issuedAt: issuedDate.toISOString(),
+                        expiresAt: expiryDate.toISOString(),
+                        used: false
+                    }
+
+                ],
+
+                orders: []
+
+            };
+
+
+            // LocalStorage 저장
+
+            users.push(newUser);
+
+            localStorage.setItem(
+                "users", JSON.stringify(users)
+            );
+
+            alert(name + "님, 회원가입이 완료되었습니다!");
+
+            this.reset();
+
+            showLogin();
+
+            document.getElementById("loginId").value = id;
+
+        } catch (error) {
+
+            alert("회원가입에 실패했습니다. localhost 또는 HTTPS 환경에서 실행해주세요.");
+
+        }
+
+    });
+
+
+// =========================
+// 로그인 처리
+// =========================
+
+document.getElementById("loginForm")
+    .addEventListener("submit", async function(event) {
+
+        event.preventDefault();
+
+        const id =
+            document.getElementById("loginId").value.trim();
+
+        const password =
+            document.getElementById("loginPassword").value;
+
+        const message =
+            document.getElementById("loginMessage");
+
+        try {
+
+            const passwordHash = await hashPassword(password);
+
+            const users = getUsers();
+
+            const user = users.find(function(user) {
+
+                return user.id === id &&
+                       user.passwordHash === passwordHash;
+
+            });
+
+            if (!user) {
+
+                message.textContent =
+                    "아이디 또는 비밀번호가 일치하지 않습니다.";
+
+                message.style.color = "red";
+
+                return;
+
+            }
+
+
+            // 로그인 상태 저장
+
+            localStorage.setItem(
+                "currentUser", user.userNo
+            );
+
+            // 기존 페이지 호환
+
+            sessionStorage.setItem(
+                "demoMemberName", user.name
+            );
+
+
+            // 아이디 저장
+
+            if (document.getElementById("saveId").checked) {
+
+                localStorage.setItem("savedLoginId", id);
+
+            } else {
+
+                localStorage.removeItem("savedLoginId");
+
+            }
+
+            alert(user.name + "님, 환영합니다!");
+
+            location.href = "../../../index.html";
+
+        } catch (error) {
+
+            message.textContent = "로그인 처리 중 오류가 발생했습니다.";
+
+            message.style.color = "red";
+
+        }
+
+    });
+
+
+// 저장된 아이디 불러오기
+
+const savedId = localStorage.getItem("savedLoginId");
+
+if (savedId) {
+
+    document.getElementById("loginId").value = savedId;
+
+    document.getElementById("saveId").checked = true;
+
+}
+
+
+// 외부 로그인 안내
+
+function socialNotice() {
+
+    alert(
+        "프로토타입에서는 외부 인증을 지원하지 않습니다.\n" +
+        "회원가입 후 아이디 로그인을 이용해주세요."
+    );
+
+}
+
+
+// 회원가입 링크 연결
+
+if (location.hash === "#register") {
+
+    showRegister();
+
+}
+
+</script>
+
 </body>
+
 </html>

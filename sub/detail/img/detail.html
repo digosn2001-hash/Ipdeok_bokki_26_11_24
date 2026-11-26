@@ -5,104 +5,393 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>상세페이지</title>
+    <title>입떡볶이 - 소개</title>
 
+    <link rel="stylesheet" href="../../../css/style.css">
     <link rel="stylesheet" href="../css/detail.css">
+
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
 
     <div class="wrapper">
 
-        <header class="sub-header">
-            <a href="../../lists/img/lists.html">〈</a>
-            <h1>상세 메뉴</h1>
-            <a href="../../../index.html">⌂</a>
-        </header>
+        <!-- 헤더 -->
 
-        <div class="detail-image"></div>
+        <header class="header">
 
-        <section class="detail-info">
+            <a href="../../../index.html" class="logo">
 
-            <h2>오리지널 떡볶이</h2>
+                <img src="../../../img/logo.png" alt="로고">
 
-            <p class="description">
-                매콤하고 맛있는 입떡볶이의 대표 메뉴입니다.
-            </p>
+                <span class="brand-name">입덕볶이</span>
 
-            <strong class="price">14,000원</strong>
-
-        </section>
-
-        <section class="option-section">
-
-            <h3>맵기 선택</h3>
-
-            <label>
-                <input type="radio" name="spicy" checked>
-                순한맛
-            </label>
-
-            <label>
-                <input type="radio" name="spicy">
-                보통맛
-            </label>
-
-            <label>
-                <input type="radio" name="spicy">
-                매운맛
-            </label>
-
-        </section>
-
-        <section class="option-section">
-
-            <h3>추가 토핑</h3>
-
-            <label>
-                <input type="checkbox" class="extra" value="2000">
-                치즈 추가 (+2,000원)
-            </label>
-
-            <label>
-                <input type="checkbox" class="extra" value="1000">
-                떡 추가 (+1,000원)
-            </label>
-
-        </section>
-
-        <div class="order-area">
-
-            <a href="../../payment/img/payment.html"
-                class="order-button" id="orderButton">
-                14,000원 주문하기
             </a>
 
-        </div>
+            <button type="button" class="menu-button"
+                id="menuOpen"
+                aria-label="메뉴 열기"
+                aria-controls="sideMenu"
+                aria-expanded="false">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+        </header>
+
+
+        <!-- 햄버거 메뉴 배경 -->
+
+        <div class="menu-overlay" id="menuOverlay"></div>
+
+
+        <!-- 햄버거 메뉴 -->
+
+        <aside class="side-menu" id="sideMenu"
+            aria-hidden="true" inert>
+
+            <div class="side-menu-header">
+
+                <h2>MENU</h2>
+
+                <button type="button" class="close-button"
+                    id="menuClose"
+                    aria-label="메뉴 닫기">
+
+                    ×
+
+                </button>
+
+            </div>
+
+
+            <!-- 로그인 회원 정보 -->
+
+            <div class="member-info" id="memberInfo" hidden>
+
+                <div class="member-name-box">
+
+                    <strong id="memberName">
+                        회원님
+                    </strong>
+
+                    <span class="membership">
+                        멤버쉽
+                    </span>
+
+                </div>
+
+                <p class="member-welcome">
+                    반갑습니다!
+                </p>
+
+                <button type="button" class="member-delivery"
+                    onclick="location.href='../../../index.html?delivery=open'">
+
+                    배달현황 <span>›</span>
+
+                </button>
+
+            </div>
+
+
+            <!-- 햄버거 메뉴 목록 -->
+
+            <nav class="side-menu-nav">
+
+                <ul>
+
+                    <li>
+                        <a href="../../lists/img/lists.html">
+                            떡볶이메뉴 <span>›</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="detail.html">
+                            소개 <span>›</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../payment/img/payment.html">
+                            커뮤니티 <span>›</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../../payment_Finish/img/payment_Finish.html"
+                            id="loginMenu">
+
+                            로그인 <span>›</span>
+
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </aside>
+
+
+        <!-- SECTION 1 : 소개 배너 -->
+
+        <section class="intro-section_1">
+
+            <p>BRAND STORY</p>
+
+            <h1>입떡볶이를 소개합니다</h1>
+
+            <p>매일 생각나는 맛있는 매콤함</p>
+
+        </section>
+
+
+        <!-- SECTION 2 : 브랜드 소개 -->
+
+        <section class="intro-section_2">
+
+            <h2>브랜드 소개</h2>
+
+            <div class="intro-image"></div>
+
+            <h3>맛있는 순간, 입떡볶이</h3>
+
+            <p>
+
+                언제 어디서나 맛있게 즐길 수 있는<br>
+
+                떡볶이로 여러분의 일상에<br>
+
+                행복을 더합니다.
+
+            </p>
+
+        </section>
+
+
+        <!-- SECTION 3 : 브랜드 특징 -->
+
+        <section class="intro-section_3">
+
+            <h2>입떡볶이의 특별함</h2>
+
+
+            <div class="intro-card">
+
+                <h3>01. 특별한 매콤함</h3>
+
+                <p>자꾸 생각나는 매콤하고 맛있는 소스</p>
+
+            </div>
+
+
+            <div class="intro-card">
+
+                <h3>02. 정성 가득한 재료</h3>
+
+                <p>정성을 담아 만드는 떡볶이</p>
+
+            </div>
+
+
+            <div class="intro-card">
+
+                <h3>03. 누구나 즐기는 맛</h3>
+
+                <p>함께 즐길 수 있는 맛있는 한 끼</p>
+
+            </div>
+
+        </section>
+
+
+        <!-- SECTION 4 : 메뉴 이동 -->
+
+        <section class="intro-section_4">
+
+            <a href="../../lists/img/lists.html"
+                class="intro-button">
+
+                떡볶이 메뉴 보러가기
+
+            </a>
+
+        </section>
+
+
+        <!-- 푸터 -->
+
+        <footer class="intro-footer">
+
+            <p>© 입떡볶이. All rights reserved.</p>
+
+        </footer>
 
     </div>
 
+
+    <!-- JAVASCRIPT -->
+
     <script>
-        const extras = document.querySelectorAll(".extra");
-        const orderButton = document.getElementById("orderButton");
 
-        extras.forEach(function(extra) {
-            extra.addEventListener("change", function() {
+        // 햄버거 메뉴 요소 연결
 
-                let total = 14000;
+        const menuOpen = document.getElementById("menuOpen");
 
-                extras.forEach(function(item) {
-                    if (item.checked) {
-                        total += Number(item.value);
-                    }
-                });
+        const menuClose = document.getElementById("menuClose");
 
-                orderButton.textContent =
-                    total.toLocaleString("ko-KR") + "원 주문하기";
+        const sideMenu = document.getElementById("sideMenu");
 
-            });
+        const menuOverlay = document.getElementById("menuOverlay");
+
+
+        // 햄버거 메뉴 열기
+
+        function openMenu() {
+
+            sideMenu.inert = false;
+
+            sideMenu.classList.add("active");
+
+            menuOverlay.classList.add("active");
+
+            document.body.classList.add("menu-open");
+
+            sideMenu.setAttribute("aria-hidden", "false");
+
+            menuOpen.setAttribute("aria-expanded", "true");
+
+            updateMemberInfo();
+
+            menuClose.focus();
+
+        }
+
+
+        // 햄버거 메뉴 닫기
+
+        function closeMenu() {
+
+            sideMenu.classList.remove("active");
+
+            menuOverlay.classList.remove("active");
+
+            document.body.classList.remove("menu-open");
+
+            menuOpen.setAttribute("aria-expanded", "false");
+
+            menuOpen.focus();
+
+            sideMenu.inert = true;
+
+            sideMenu.setAttribute("aria-hidden", "true");
+
+        }
+
+
+        // 햄버거 버튼 클릭 연결
+
+        menuOpen.addEventListener("click", openMenu);
+
+        menuClose.addEventListener("click", closeMenu);
+
+        menuOverlay.addEventListener("click", closeMenu);
+
+
+        // ESC 버튼으로 메뉴 닫기
+
+        document.addEventListener("keydown", function(event) {
+
+            if (event.key === "Escape" &&
+                sideMenu.classList.contains("active")) {
+
+                closeMenu();
+
+            }
+
         });
+
+
+        // 로그인 회원 정보 표시
+
+        function updateMemberInfo() {
+
+            const name = sessionStorage.getItem("demoMemberName");
+
+            const memberInfo = document.getElementById("memberInfo");
+
+            const memberName = document.getElementById("memberName");
+
+            const loginMenu = document.getElementById("loginMenu");
+
+
+            // 로그인 상태
+
+            if (name) {
+
+                memberInfo.hidden = false;
+
+                memberName.textContent = name + " 회원님";
+
+                loginMenu.innerHTML = "로그아웃 <span>›</span>";
+
+                loginMenu.href = "#";
+
+
+                // 로그아웃 기능
+
+                loginMenu.onclick = function(event) {
+
+                    event.preventDefault();
+
+                    if (confirm("로그아웃 하시겠습니까?")) {
+
+                        sessionStorage.removeItem("demoMemberName");
+
+                        updateMemberInfo();
+
+                        closeMenu();
+
+                    }
+
+                };
+
+            } else {
+
+                // 비로그인 상태
+
+                memberInfo.hidden = true;
+
+                memberName.textContent = "회원님";
+
+                loginMenu.innerHTML = "로그인 <span>›</span>";
+
+                loginMenu.href =
+                    "../../payment_Finish/img/payment_Finish.html";
+
+                loginMenu.onclick = null;
+
+            }
+
+        }
+
+
+        // 페이지 접속 시 로그인 확인
+
+        updateMemberInfo();
+
+
+        // 다른 페이지에서 돌아왔을 때 로그인 확인
+
+        window.addEventListener("pageshow", updateMemberInfo);
+
     </script>
 
 </body>
